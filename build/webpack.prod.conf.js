@@ -44,6 +44,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         ],
     },
     plugins: [
+        // new webpack.DefinePlugin({
+        //   'process.env': require('../config/prod.env')
+        // }),
         new MiniCssExtractPlugin({
             filename: utils.assetsPath('css/[name].[chunkhash].css'),
             chunkFilename: utils.assetsPath('css/[id].[chunkhash].css')

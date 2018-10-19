@@ -18,19 +18,19 @@ export default {
         {
           key: "Pro 首页",
           title: "Pro 首页",
-          href: "http://pro.ant.design",
+          href: "https://github.com/Jackyzm/ant-design-vue-pro",
           blankTarget: true
         },
         {
           key: "github",
           title: "github",
-          href: "https://github.com/ant-design/ant-design-pro",
+          href: "https://github.com/Jackyzm/ant-design-vue-pro",
           blankTarget: true
         },
         {
-          key: "Ant Design",
-          title: "Ant Design",
-          href: "http://ant.design",
+          key: "Ant Design Vue",
+          title: "Ant Design Vue",
+          href: "https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce/",
           blankTarget: true
         }
       ]
