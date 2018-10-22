@@ -20,6 +20,7 @@
     "vue-router": "^3.0.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
@@ -55,6 +56,7 @@
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.4",
+    "mockjs": "^1.0.1-beta3",
     "nightwatch": "^0.9.21",
     "node-notifier": "^5.2.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",

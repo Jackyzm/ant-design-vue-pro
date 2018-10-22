@@ -16,6 +16,8 @@
                             :onClear="() => onClear(item.title)"
                             :title="item.title"
                             :locale="locale"
+                            :emptyImage="item.emptyImage"
+                            :emptyText="item.emptyText"
                         />
                     </a-tab-pane>
                 </a-tabs>
@@ -60,35 +62,38 @@ export default {
     },
     notices: {
       type: Array
+    },
+    loading: {
+        type: Boolean
     }
   },
-  data() {
-    return {
-      loading: false,
-      tabType: '',
-      dataList: [
+  computed: {
+    dataList() {
+      return [
         {
           list: this.getNoticeData()["通知"],
           title: "通知",
           emptyText: "你已查看所有通知",
-          emptyImage:
-            "https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg"
+          emptyImage: "https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg"
         },
         {
           list: this.getNoticeData()["消息"],
           title: "消息",
           emptyText: "您已读完所有消息",
-          emptyImage:
-            "https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"
+          emptyImage: "https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"
         },
         {
           list: this.getNoticeData()["待办"],
           title: "待办",
           emptyText: "你已完成所有待办",
-          emptyImage:
-            "https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg"
+          emptyImage: "https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg"
         }
-      ],
+      ];
+    }
+  },
+  data() {
+    return {
+      tabType: "",
       locale: {
         emptyText: "暂无数据",
         clear: "清空"
@@ -115,7 +120,7 @@ export default {
       return groupBy(newNotices, "type");
     },
     onTabChange(tabType) {
-        this.tabType = tabType;
+      this.tabType = tabType;
     }
   }
 };
@@ -124,22 +129,22 @@ export default {
 <style lang="less">
 @import "./index.less";
 .noticeButton {
-    cursor: pointer;
-    display: inline-block;
-    transition: all 0.3s;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s;
 }
 
 .icon {
-    font-size: 16px;
-    padding: 4px;
+  font-size: 16px;
+  padding: 4px;
 }
 
 .tabs {
-    .ant-tabs-nav-scroll {
-        text-align: center;
-    }
-    .ant-tabs-bar {
-        margin-bottom: 4px;
-    }
+  .ant-tabs-nav-scroll {
+    text-align: center;
+  }
+  .ant-tabs-bar {
+    margin-bottom: 4px;
+  }
 }
 </style>
