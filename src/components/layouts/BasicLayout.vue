@@ -48,7 +48,6 @@ export default {
     SiderMenu
   },
   created() {
-    //   console.log(this.$route, getMenuData())
     this.MenuData = getMenuData();
     this.$store.dispatch("header/getHeaderNotice");
     this.$store.dispatch("header/getUserCurrentData");
