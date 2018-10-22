@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router";
 import store from './store';
+
+import 'moment/locale/zh-cn';
+
 import {
     Button,
     Layout,
@@ -17,7 +20,10 @@ import {
     Badge,
     Tabs,
     List,
-    Tag
+    Tag,
+    Row,
+    Col,
+    Card,
 } from "ant-design-vue";
 
 const { Content, Header, Footer, Sider } = Layout;
@@ -51,6 +57,9 @@ Vue.component(ListItem.name, ListItem);
 Vue.component(ListItemMeta.name, ListItemMeta);
 Vue.component(Tag.name, Tag);
 Vue.component(MenuSubMenu.name, MenuSubMenu);
+Vue.component(Row.name, Row);
+Vue.component(Col.name, Col);
+Vue.component(Card.name, Card);
 
 
 
