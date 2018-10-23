@@ -26,9 +26,7 @@
             <NoticeIcon
                 className="action"
                 :count="currentUser.notifyCount"
-                :onItemClick="(item, tabProps) => {
-                    console.log(item, tabProps); // eslint-disable-line
-                }"
+                :onItemClick="(item, tabProps) => onItemClick(item, tabProps)"
                 :onClear="onNoticeClear"
                 :onPopupVisibleChange="onNoticeVisibleChange"
                 :loading="fetchingNotices"
@@ -106,6 +104,9 @@ export default {
     },
     onPressEnter(value) {
         console.log('enter', value)
+    },
+    onItemClick(item, tabProps) {
+        console.log(item, tabProps);
     }
   }
 };

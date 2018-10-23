@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import user from './models/user';
+import analysis from './models/analysis';
 import header from './models/header';
 // import getters from './getters'
 
@@ -8,8 +8,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
-        header
-        // user
+        header,
+        analysis
     },
     //   getters
 })
