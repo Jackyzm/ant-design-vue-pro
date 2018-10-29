@@ -29,7 +29,9 @@ const header = {
     actions: {
         getHeaderNotice({ commit }) {
             getHeaderNotices().then((res)=>{
-                commit('SET_NOTICE', res);
+                if (res) {
+                    commit('SET_NOTICE', res);
+                }
             });
         },
         changeFetchNotice({ commit }) {
@@ -39,7 +41,9 @@ const header = {
         },
         getUserCurrentData({ commit }) {
             getUserCurrent().then((res)=>{
-                commit('SET_USER_CURRENT', res);
+                if (res) {
+                    commit('SET_USER_CURRENT', res);
+                }
             });
         },
         clearNotices({ commit }, { type }) {

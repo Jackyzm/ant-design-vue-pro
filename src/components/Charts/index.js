@@ -1,7 +1,8 @@
 import numeral from "numeral";
 import ChartCard from "./ChartCard";
-// import Bar from "./Bar";
-// import Pie from "./Pie";
+import Bar from "./Bar";
+import Pie from "./Pie";
+import MiniPie from './MiniPie';
 // import Radar from "./Radar";
 // import Gauge from "./Gauge";
 import MiniArea from "./MiniArea";
@@ -10,14 +11,17 @@ import MiniProgress from "./MiniProgress";
 import Field from "./Field";
 // import WaterWave from "./WaterWave";
 // import TagCloud from "./TagCloud";
-// import TimelineChart from "./TimelineChart";
+import TimelineChart from "./TimelineChart";
 
 const yuan = val => `¥ ${numeral(val).format("0,0")}`;
+const colors = [ '#1890FF', '#13C2C2', '#2FC25B', '#FACC14', '#F04864', '#8543E0', '#3436C7', '#223273' ];
 
 const Charts = {
     yuan,
-//     Bar,
-//     Pie,
+    colors,
+    Bar,
+    Pie,
+    MiniPie,
 //     Gauge,
 //     Radar,
     MiniBar,
@@ -27,14 +31,16 @@ const Charts = {
     Field,
 //     WaterWave,
 //     TagCloud,
-//     TimelineChart
+    TimelineChart
 };
 
 export {
     Charts as default,
     yuan,
-    // Bar,
-    // Pie,
+    colors,
+    Bar,
+    Pie,
+    MiniPie,
     // Gauge,
     // Radar,
     MiniBar,
@@ -44,5 +50,5 @@ export {
     Field,
     // WaterWave,
     // TagCloud,
-    // TimelineChart
+    TimelineChart
 };

@@ -71,7 +71,7 @@ export default {
   },
   props: {
     currentUser: {
-      type: Object
+      type: Object,
     },
     collapsed: {
       type: Boolean

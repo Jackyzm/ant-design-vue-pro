@@ -72,19 +72,19 @@ export default function request(url, options) {
         .catch(e => {
             const status = e.name;
             if (status === 401) {
-                this.$router.push('/login');
+                // this.$router.push('/login');
                 return;
             }
             if (status === 403) {
-                this.$router.push('/exception/403');
+                // this.$router.push('/exception/403');
                 return;
             }
             if (status <= 504 && status >= 500) {
-                this.$router.push('/exception/500');
+                // this.$router.push('/exception/500');
                 return;
             }
             if (status >= 404 && status < 422) {
-                this.$router.push('/exception/404');
+                // this.$router.push('/exception/404');
             }
         });
 }

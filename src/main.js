@@ -24,6 +24,10 @@ import {
     Row,
     Col,
     Card,
+    DatePicker,
+    Radio,
+    Table,
+    Divider
 } from "ant-design-vue";
 
 const { Content, Header, Footer, Sider } = Layout;
@@ -33,6 +37,9 @@ const MenuSubMenu = Menu.SubMenu;
 const TabsTabPane = Tabs.TabPane;
 const ListItem = List.Item;
 const ListItemMeta = List.Item.Meta;
+const { RangePicker } = DatePicker;
+const RadioGroup = Radio.Group;
+const RadioButton = Radio.Button;
 
 Vue.config.productionTip = false;
 
@@ -60,6 +67,13 @@ Vue.component(MenuSubMenu.name, MenuSubMenu);
 Vue.component(Row.name, Row);
 Vue.component(Col.name, Col);
 Vue.component(Card.name, Card);
+Vue.component(DatePicker.name, DatePicker);
+Vue.component(RangePicker.name, RangePicker);
+Vue.component(Radio.name, Radio);
+Vue.component(RadioGroup.name, RadioGroup);
+Vue.component(RadioButton.name, RadioButton);
+Vue.component(Table.name, Table);
+Vue.component(Divider.name, Divider);
 
 
 
