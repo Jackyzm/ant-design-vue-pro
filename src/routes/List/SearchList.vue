@@ -1,16 +1,17 @@
 <template>
     <div>
-        Monitor
+        SearchList
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Monitor"
+    name: "SearchList"
 }
 </script>
 
 <style lang="less" scoped>
-@import './Monitor.less';
+
 </style>
 

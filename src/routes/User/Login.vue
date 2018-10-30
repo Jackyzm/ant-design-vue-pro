@@ -1,16 +1,16 @@
 <template>
     <div>
-        Monitor
+        Login
     </div>
 </template>
 
 <script>
 export default {
-    name: "Monitor"
+    name: "Login"
 }
 </script>
 
 <style lang="less" scoped>
-@import './Monitor.less';
+
 </style>
 

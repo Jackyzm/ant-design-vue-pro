@@ -1,16 +1,17 @@
 <template>
     <div>
-        Monitor
+        AdvancedForm
     </div>
 </template>
 
 <script>
 export default {
-    name: "Monitor"
+    name: "AdvancedForm"
 }
 </script>
 
 <style lang="less" scoped>
-@import './Monitor.less';
+
 </style>
+
 

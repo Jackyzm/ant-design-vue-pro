@@ -7,8 +7,16 @@ Vue.use(Router);
 export default new Router({
     routes: [
         {
-            path: '/login',
-            component: ()=> import('@/routes/Dashboard/Analysis'),
+            path: '/user/login',
+            component: ()=> import('@/routes/User/Login'),
+        },
+        {
+            path: '/user/register',
+            component: ()=> import('@/routes/User/Register'),
+        },
+        {
+            path: '/user/register-result',
+            component: ()=> import('@/routes/User/RegisterResult'),
         },
         {
             path: '/',
@@ -24,8 +32,74 @@ export default new Router({
                     component: ()=> import('@/routes/Dashboard/Monitor'),
                 },
                 {
-                    path: '/aaa',
-                    component: ()=> import('@/routes/Dashboard/Analysis'),
+                    path: '/dashboard/workplace',
+                    component: ()=> import('@/routes/Dashboard/Workplace'),
+                },
+                {
+                    path: '/form/basic-form',
+                    component: ()=> import('@/routes/Form/BasicForm'),
+                },
+                {
+                    path: '/form/step-form',
+                    component: ()=> import('@/routes/Form/StepForm'),
+                    redirect: '/form/step-form/info',
+                    children: [
+                        {
+                            path: '/form/step-form/info',
+                            component: ()=> import('@/routes/Form/StepForm/Info'),
+                        },
+                    ]
+                },
+                {
+                    path: '/form/advanced-form',
+                    component: ()=> import('@/routes/Form/AdvancedForm'),
+                },
+                {
+                    path: '/list/table-list',
+                    component: ()=> import('@/routes/List/TableList'),
+                },
+                {
+                    path: '/list/basic-list',
+                    component: ()=> import('@/routes/List/BasicList'),
+                },
+                {
+                    path: '/list/card-list',
+                    component: ()=> import('@/routes/List/CardList'),
+                },
+                {
+                    path: '/list/search',
+                    component: ()=> import('@/routes/List/SearchList'),
+                    redirect: '/list/search/articles',
+                    children: [
+                        {
+                            path: '/list/search/articles',
+                            component: ()=> import('@/routes/List/SearchList/Articles'),
+                        },
+                        {
+                            path: '/list/search/projects',
+                            component: ()=> import('@/routes/List/SearchList/Projects'),
+                        },
+                        {
+                            path: '/list/search/applications',
+                            component: ()=> import('@/routes/List/SearchList/Applications'),
+                        },
+                    ]
+                },
+                {
+                    path: '/profile/basic',
+                    component: ()=> import('@/routes/Profile/BasicProfile'),
+                },
+                {
+                    path: '/profile/advanced',
+                    component: ()=> import('@/routes/Profile/AdvancedProfile'),
+                },
+                {
+                    path: '/result/success',
+                    component: ()=> import('@/routes/Result/Success'),
+                },
+                {
+                    path: '/result/fail',
+                    component: ()=> import('@/routes/Result/Error'),
                 },
                 {
                     path: '/exception/403',

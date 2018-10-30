@@ -58,7 +58,11 @@ export default {
   },
   mounted() {
     let pathArr = urlToList(this.location.path);
-    if (pathArr[2]) {
+    if (pathArr[2] && !this.checkPath(pathArr[2])) {
+      this.openKeys = [pathArr[0]];
+      this.selectedKeys = [pathArr[1]];
+      return;
+    } else if (pathArr[2]) {
       this.openKeys = [pathArr[0], pathArr[1]];
     } else {
       this.openKeys = [pathArr[0]];
@@ -69,7 +73,11 @@ export default {
     collapsed: "collapsedChange",
     $route() {
       let pathArr = urlToList(this.location.path);
-      if (pathArr[2]) {
+      if (pathArr[2] && !this.checkPath(pathArr[2])) {
+        this.openKeys = [pathArr[0]];
+        this.selectedKeys = [pathArr[1]];
+        return;
+      } else if (pathArr[2]) {
         this.openKeys = [pathArr[0], pathArr[1]];
       } else {
         this.openKeys = [pathArr[0]];
@@ -85,10 +93,28 @@ export default {
     };
   },
   methods: {
+    checkPath(url) {
+      let status = false;
+      const mapData = data => {
+        data.map(item => {
+          if (item.path == url) status = true;
+          if (item.children) {
+            haveChildren(item.children);
+          }
+        });
+      };
+      const haveChildren = arr => {
+        mapData(arr);
+      };
+      mapData(this.menuData);
+      return status;
+    },
     handleOpenChange(openKeys) {
       let keys;
       if (openKeys.length > 1) {
-        if (openKeys[1].indexOf(openKeys[0]) > -1) {
+        if (openKeys.length > 2) {
+          keys = [openKeys[openKeys.length - 1]];
+        } else if (openKeys[1].indexOf(openKeys[0]) > -1) {
           keys = [openKeys[0], openKeys[1]];
         } else {
           keys = [openKeys[openKeys.length - 1]];

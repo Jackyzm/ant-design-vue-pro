@@ -1,16 +1,18 @@
 <template>
     <div>
-        Monitor
+        StepForm
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Monitor"
+    name: "StepForm"
 }
 </script>
 
 <style lang="less" scoped>
-@import './Monitor.less';
+
 </style>
+
 
