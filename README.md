@@ -4,10 +4,14 @@
 ## 启动项目
 ```sh
 安装依赖
-$ npm install
+$ yarn install
 
 启动项目
-$ npm run start
+$ yarn start
+
+启动模拟数据
+$ yarn serve
+
 在浏览器中输入 http://localhost:8080
 ```
 
