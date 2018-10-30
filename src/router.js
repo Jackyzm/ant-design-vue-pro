@@ -20,8 +20,28 @@ export default new Router({
                     component: ()=> import('@/routes/Dashboard/Analysis'),
                 },
                 {
+                    path: '/dashboard/monitor',
+                    component: ()=> import('@/routes/Dashboard/Monitor'),
+                },
+                {
                     path: '/aaa',
                     component: ()=> import('@/routes/Dashboard/Analysis'),
+                },
+                {
+                    path: '/exception/403',
+                    component: ()=> import('@/routes/Exception/403'),
+                },
+                {
+                    path: '/exception/404',
+                    component: ()=> import('@/routes/Exception/404'),
+                },
+                {
+                    path: '/exception/500',
+                    component: ()=> import('@/routes/Exception/500'),
+                },
+                {
+                    path: '/exception/trigger',
+                    component: ()=> import('@/routes/Exception/triggerException'),
                 }
             ]
         },

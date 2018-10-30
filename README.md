@@ -13,4 +13,4 @@ $ npm run start
 
 ## 项目示例如下
 
-开发中。。。。。
+<img src="./static/LXB1N[4Q654}$E0U)]%C6)D.png"/>

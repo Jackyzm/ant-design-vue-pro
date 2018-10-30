@@ -1,4 +1,5 @@
 import { notification } from 'ant-design-vue';
+import router from '../router';
 
 const codeMessage = {
     200: '服务器成功返回请求的数据。',
@@ -72,19 +73,20 @@ export default function request(url, options) {
         .catch(e => {
             const status = e.name;
             if (status === 401) {
-                // this.$router.push('/login');
+                window.location.hash = '#/login';
                 return;
             }
             if (status === 403) {
-                // this.$router.push('/exception/403');
+                window.location.hash = '#/exception/403';
                 return;
             }
             if (status <= 504 && status >= 500) {
-                // this.$router.push('/exception/500');
+                window.location.hash = '#/exception/500';
                 return;
             }
             if (status >= 404 && status < 422) {
-                // this.$router.push('/exception/404');
+                window.location.hash = '#/exception/404';
+                return;
             }
         });
 }

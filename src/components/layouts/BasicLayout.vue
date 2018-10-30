@@ -16,8 +16,8 @@
                         :notices="notices"
                         :collapsed="collapsed"
                         :onNoticeClear="(type)=>handleNoticeClear(type)"
-                        :onCollapse="()=>handleMenuCollapse()"
-                        :onMenuClick="()=>handleMenuClick()"
+                        :onCollapse="handleMenuCollapse"
+                        :onMenuClick="(item)=>handleMenuClick(item)"
                         :onNoticeVisibleChange="(visible)=>handleNoticeVisibleChange(visible)"
                     />
                 </a-layout-header>
@@ -74,27 +74,17 @@ export default {
     handleNoticeClear(type) {
       message.success(`清空了${type}`);
       this.$store.dispatch("header/clearNotices", { type });
-      // this.props.dispatch({
-      //     type: 'global/clearNotices',
-      //     payload: type,
-      // });
     },
     handleMenuCollapse(collapsed) {
       this.collapsed = !this.collapsed;
-      // this.props.dispatch({
-      //     type: 'global/changeLayoutCollapsed',
-      //     payload: collapsed,
-      // });
     },
     handleMenuClick({ key }) {
       if (key === "triggerError") {
-        // this.props.dispatch(routerRedux.push('/exception/trigger'));
+        this.$router.push('/exception/trigger');
         return;
       }
       if (key === "logout") {
-        // this.props.dispatch({
-        //     type: 'login/logout',
-        // });
+          this.$router.push('/login');
       }
     },
     handleNoticeVisibleChange(visible) {

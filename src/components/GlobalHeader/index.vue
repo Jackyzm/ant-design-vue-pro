@@ -35,7 +35,7 @@
             />
 
             <a-dropdown v-if="currentUser.name">
-                <a-menu slot="overlay" class="menu">
+                <a-menu slot="overlay" class="menu" @click="onMenuClick">
                     <a-menu-item disabled>
                         <a-icon type="user" />个人中心
                     </a-menu-item>
@@ -90,6 +90,10 @@ export default {
     },
     notices:{
         type:Array
+    },
+    onMenuClick: {
+        type: Function,
+        default: ()=>{}
     }
   },
   data() {
@@ -97,6 +101,7 @@ export default {
   },
   methods: {
     toggle() {
+        console.log('------------');
       this.onCollapse(!this.collapsed);
     },
     onSearch(value) {

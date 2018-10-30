@@ -371,12 +371,12 @@ export default {
     }
     this.rankingListData = rankingListData;
   },
+  destroyed() {
+      this.$store.dispatch("analysis/clearChartData");
+  },
   computed: {
-    //   chartData() {
-    //       return this.$store.state.analysis.chartData;
-    //   },
     visitData() {
-      console.log(this.$store.state.analysis.chartData);
+    //   console.log(this.$store.state.analysis.chartData);
       return this.$store.state.analysis.chartData.visitData || [];
     },
     salesData() {
@@ -392,7 +392,6 @@ export default {
       return this.$store.state.analysis.chartData.offlineData || [];
     },
     activeKey() {
-        console.log(this.currentTabKey || (this.offlineData[0] && this.offlineData[0].name));
       return this.currentTabKey || (this.offlineData[0] && this.offlineData[0].name)
     },
     salesPieData() {

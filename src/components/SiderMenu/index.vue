@@ -66,7 +66,16 @@ export default {
     this.selectedKeys = [this.location.path];
   },
   watch: {
-    collapsed: "collapsedChange"
+    collapsed: "collapsedChange",
+    $route() {
+      let pathArr = urlToList(this.location.path);
+      if (pathArr[2]) {
+        this.openKeys = [pathArr[0], pathArr[1]];
+      } else {
+        this.openKeys = [pathArr[0]];
+      }
+      this.selectedKeys = [this.location.path];
+    }
   },
   data() {
     return {
