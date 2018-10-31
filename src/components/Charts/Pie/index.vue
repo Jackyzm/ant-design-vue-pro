@@ -1,7 +1,7 @@
 <template>
     <div :class="pieClassName" :style="pieStyle">
         <div class="chart">
-            <ve-ring :data="chartDataArr" :height="height+'px'" :colors="colors" :extend="chartExtend"/>
+            <ve-ring :data="chartData" :height="height+'px'" :colors="colors" :extend="chartExtend"/>
             <div v-if="subTitle || total" class="total">
                 <h4 v-if="subTitle" class="pie-sub-title">{{subTitle}}</h4>
                 <div v-if="total" class="pie-stat">{{total}}</div>
@@ -9,7 +9,7 @@
         </div>
 
         <ul v-if="hasLegend" class="legend">
-            <li v-for="(item, i) in legendDataArr" :key="item.x" @click="handleLegendClick(item, i)">
+            <li v-for="(item, i) in legendData" :key="item.x" @click="handleLegendClick(item, i)">
                 <span
                     class="dot"
                     :style="'background-color: '+ (!item.checked ? '#aaa' : item.color) "
@@ -34,51 +34,52 @@ export default {
   components: {
     VeRing
   },
-  mounted() {},
+  mounted() {
+    this.setChartData();
+    this.setLegendData();
+  },
   computed: {
     pieClassName() {
       return `pie ${this.className} ${!!this.hasLegend ? "hasLegend" : ""} ${
         this.legendBlock ? "legendBlock" : ""
       }`;
-    },
-    chartData: {
-      get: function() {
-        return {
-          columns: ["x", "y"],
-          rows: cloneDeep(this.data)
-        };
-      },
-      set: function(index) {
-        if (this.legendData[index].checked) {
-          this.chartDataArr.rows[index].y = this.data[index].y;
-        } else {
-          this.chartDataArr.rows[index].y = 0;
-        }
-      }
-    },
-    legendData: {
-      get: function() {
-        if (this.data.length == 0) return [];
-        let arr = cloneDeep(this.data);
-        const total = arr.reduce((pre, now) => now.y + pre, 0);
-        return arr.map((item, index) => {
-          item.checked = true;
-          item.color = this.colors[index];
-          item.percent = item.y / total;
-          return item;
-        });
-      },
-      set: function(index) {
-        this.legendDataArr[index].checked = !this.legendDataArr[index].checked;
-      }
     }
+    // chartData: {
+    //   get: function() {
+    //     return {
+    //       columns: ["x", "y"],
+    //       rows: cloneDeep(this.data)
+    //     };
+    //   },
+    //   set: function(index) {
+    //     if (this.legendData[index].checked) {
+    //       this.chartDataArr.rows[index].y = this.data[index].y;
+    //     } else {
+    //       this.chartDataArr.rows[index].y = 0;
+    //     }
+    //   }
+    // },
+    // legendData: {
+    //   get: function() {
+    //     if (this.data.length == 0) return [];
+    //     let arr = cloneDeep(this.data);
+    //     const total = arr.reduce((pre, now) => now.y + pre, 0);
+    //     return arr.map((item, index) => {
+    //       item.checked = true;
+    //       item.color = this.colors[index];
+    //       item.percent = item.y / total;
+    //       return item;
+    //     });
+    //   },
+    //   set: function(index) {
+    //     this.legendDataArr[index].checked = !this.legendDataArr[index].checked;
+    //   }
+    // }
   },
   watch: {
-    chartData: function(val, oldVal) {
-      this.chartDataArr = val;
-    },
-    legendData: function(val, oldVal) {
-      this.legendDataArr = val;
+    data: function(val, oldVal) {
+      this.setChartData();
+      this.setLegendData();
     }
   },
   props: {
@@ -125,17 +126,38 @@ export default {
     }
   },
   methods: {
-    handleLegendClick(item, i) {
-        let checkedItem = 0;
-        this.legendDataArr.map((val)=>{
-            if(val.checked) checkedItem+=1;
-        });
-        if (checkedItem>2 || item.checked ==false) {
-            this.legendData = i;
-            this.chartData = i;
-        }else {
-            return;
+    handleLegendClick(item, index) {
+      let checkedItem = 0;
+      this.legendData.map(val => {
+        if (val.checked) checkedItem += 1;
+      });
+      if (checkedItem > 2 || item.checked == false) {
+        if (!this.legendData[index].checked) {
+          this.chartData.rows[index].y = this.data[index].y;
+        } else {
+          this.chartData.rows[index].y = 0;
         }
+        this.legendData[index].checked = !this.legendData[index].checked;
+      } else {
+        return;
+      }
+    },
+    setChartData() {
+      this.chartData = {
+        columns: ["x", "y"],
+        rows: cloneDeep(this.data)
+      };
+    },
+    setLegendData() {
+      if (this.data.length == 0) return [];
+      let arr = cloneDeep(this.data);
+      const total = arr.reduce((pre, now) => now.y + pre, 0);
+      this.legendData = arr.map((item, index) => {
+        item.checked = true;
+        item.color = this.colors[index];
+        item.percent = item.y / total;
+        return item;
+      });
     }
   },
   data() {
@@ -163,8 +185,8 @@ export default {
       }
     };
     return {
-      chartDataArr: {},
-      legendDataArr: []
+      chartData: {},
+      legendData: []
     };
   }
 };

@@ -330,7 +330,7 @@ import Trend from "@/components/Trend";
 import NumberInfo from "@/components/NumberInfo";
 import numeral from "numeral";
 import { getTimeDistance } from "@/utils/utils";
-import moment from 'moment';
+import moment from "moment";
 import {
   ChartCard,
   yuan,
@@ -341,8 +341,8 @@ import {
   Bar,
   Pie,
   colors,
-    TimelineChart,
-    MiniPie
+  TimelineChart,
+  MiniPie
 } from "@/components/Charts";
 
 export default {
@@ -372,11 +372,14 @@ export default {
     this.rankingListData = rankingListData;
   },
   destroyed() {
-      this.$store.dispatch("analysis/clearChartData");
+    this.$store.dispatch("analysis/clearChartData");
   },
   computed: {
+    loading() {
+      return this.$store.state.analysis.loading;
+    },
     visitData() {
-    //   console.log(this.$store.state.analysis.chartData);
+      //   console.log(this.$store.state.analysis.chartData);
       return this.$store.state.analysis.chartData.visitData || [];
     },
     salesData() {
@@ -392,18 +395,26 @@ export default {
       return this.$store.state.analysis.chartData.offlineData || [];
     },
     activeKey() {
-      return this.currentTabKey || (this.offlineData[0] && this.offlineData[0].name)
+      return (
+        this.currentTabKey || (this.offlineData[0] && this.offlineData[0].name)
+      );
     },
     salesPieData() {
-        let allData = this.$store.state.analysis.chartData;
-        return (this.salesType === 'all' ? allData['salesTypeData'] : this.salesType === 'online' ? allData['salesTypeDataOnline'] : allData['salesTypeDataOffline']) || [];
+      let allData = this.$store.state.analysis.chartData;
+      return (
+        (this.salesType === "all"
+          ? allData["salesTypeData"]
+          : this.salesType === "online"
+            ? allData["salesTypeDataOnline"]
+            : allData["salesTypeDataOffline"]) || []
+      );
     },
     offlineChartData() {
-        let arr = this.$store.state.analysis.chartData.offlineChartData;
-        arr.map((item)=>{
-            return item.x = moment(item.x).format('HH:mm');
-        });
-        return arr || [];
+      let arr = this.$store.state.analysis.chartData.offlineChartData;
+      arr.map(item => {
+        return (item.x = moment(item.x).format("HH:mm"));
+      });
+      return arr || [];
     }
   },
   data() {
@@ -419,7 +430,6 @@ export default {
         xl: 6,
         style: "margin-bottom: 24px;"
       },
-      loading: false,
       rangePickerValue: getTimeDistance("year"),
       salesType: "all",
       currentTabKey: "",
@@ -462,15 +472,11 @@ export default {
   methods: {
     handleRangePickerChange(rangePickerValue) {
       this.rangePickerValue = rangePickerValue;
-      // this.props.dispatch({
-      //     type: 'chart/fetchSalesData',
-      // });
+      this.$store.dispatch("analysis/getChartData");
     },
     selectDate(type) {
       this.rangePickerValue = getTimeDistance(type);
-      // this.props.dispatch({
-      //     type: 'chart/fetchSalesData',
-      // });
+      this.$store.dispatch("analysis/getChartData");
     },
     isActive(type) {
       const value = getTimeDistance(type);

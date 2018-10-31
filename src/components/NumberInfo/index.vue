@@ -6,6 +6,7 @@
         <div class="numberInfoValue" :style="gap ? 'margin-top: '+gap+'px;' : null">
             <span>
                 {{total}}
+                <slot name="total"/>
                 <em v-if="suffix" class="suffix">{{suffix}}</em>
             </span>
             <span v-if="status || subTotal" class="subTotal">
