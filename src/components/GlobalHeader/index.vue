@@ -101,7 +101,6 @@ export default {
   },
   methods: {
     toggle() {
-        console.log('------------');
       this.onCollapse(!this.collapsed);
     },
     onSearch(value) {

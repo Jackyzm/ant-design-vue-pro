@@ -36,7 +36,7 @@
 import GlobalFooter from "@/components/GlobalFooter";
 import GlobalHeader from "@/components/GlobalHeader";
 import SiderMenu from "@/components/SiderMenu";
-import logo from "../../assets/logo.png";
+import logo from "@/assets/logo.png";
 import { message } from "ant-design-vue";
 import { getMenuData } from "./menu.js";
 
