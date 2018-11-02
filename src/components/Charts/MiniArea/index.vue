@@ -1,7 +1,7 @@
 <template>
     <div class='miniChart' :style="'height:'+height+'px;'">
         <div class="chartContent">
-            <ve-line :data="chartData" :legend-visible="false" :settings="chartSettings" :colors="[color]" height="100px" :extend="chartExtend"></ve-line>
+            <ve-line :data="chartData" :legend-visible="false" :settings="chartSettings" :colors="[color]" :height="54+height+'px'" :extend="chartExtend"></ve-line>
         </div>
     </div>
 </template>
@@ -16,7 +16,7 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 46
+      default: 54
     },
     data: {
       type: Array
@@ -42,8 +42,8 @@ export default {
     this.chartExtend = {
       grid: {
         right:0,
-        top: 10,
-        bottom:55,
+        top: 20,
+        bottom: 50,
         left: 0,
       },
       yAxis: {

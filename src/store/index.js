@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import analysis from './models/analysis';
+import monitor from './models/monitor';
 import header from './models/header';
 import error from './models/error';
 // import getters from './getters'
@@ -11,6 +12,7 @@ const store = new Vuex.Store({
     modules: {
         header,
         analysis,
+        monitor,
         error
     },
     //   getters

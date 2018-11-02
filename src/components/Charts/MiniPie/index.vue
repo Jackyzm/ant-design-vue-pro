@@ -2,6 +2,10 @@
     <div :class="pieClassName" :style="pieStyle">
         <div class="chart">
             <ve-ring :data="chartData" :height="height+'px'" :colors="colors" :extend="chartExtend"/>
+            <div v-if="subTitle || total" class="total">
+                <h4 v-if="subTitle" class="pie-sub-title">{{subTitle}}</h4>
+                <p v-if="total" class="pie-stat">{{total}}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -55,6 +59,18 @@ export default {
     height:{
         type: Number,
         default: 0
+    },
+    subTitle: {
+      type: String,
+      default: ""
+    },
+    total: {
+      type: String,
+      default: ""
+    },
+    radius:{
+        type: Array,
+        default: ()=>{[]}
     }
   },
   methods: {
@@ -73,7 +89,7 @@ export default {
         label: {
           show: false
         },
-        radius: ["36%", "66%"],
+        radius: this.radius,
         hoverAnimation: false,
         center: ["50%", "50%"],
         itemStyle: {
@@ -89,6 +105,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "./index.less";
+@import "../Pie/index.less";
 </style>
 

@@ -73,7 +73,7 @@ export default function request(url, options) {
         .catch(e => {
             const status = e.name;
             if (status === 401) {
-                window.location.hash = '#/login';
+                window.location.hash = '#/user/login';
                 return;
             }
             if (status === 403) {

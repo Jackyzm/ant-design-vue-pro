@@ -306,6 +306,7 @@
                                     :color="activeKey !== shop.name ? '#BDE4FF' : ''"
                                     :percent="shop.cvr * 100"
                                     :height="64"
+                                    :radius="['36%', '66%']"
                                 />
                             </a-col>
                         </a-row>

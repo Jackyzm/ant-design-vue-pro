@@ -4,7 +4,7 @@
             <ve-ring :data="chartData" :height="height+'px'" :colors="colors" :extend="chartExtend"/>
             <div v-if="subTitle || total" class="total">
                 <h4 v-if="subTitle" class="pie-sub-title">{{subTitle}}</h4>
-                <div v-if="total" class="pie-stat">{{total}}</div>
+                <p v-if="total" class="pie-stat">{{total}}</p>
             </div>
         </div>
 
