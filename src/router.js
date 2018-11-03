@@ -7,16 +7,22 @@ Vue.use(Router);
 export default new Router({
     routes: [
         {
-            path: '/user/login',
-            component: ()=> import('@/routes/User/Login'),
-        },
-        {
-            path: '/user/register',
-            component: ()=> import('@/routes/User/Register'),
-        },
-        {
-            path: '/user/register-result',
-            component: ()=> import('@/routes/User/RegisterResult'),
+            path: '/user',
+            component: ()=> import('@/routes/User'),
+            children: [
+                {
+                    path: '/user/login',
+                    component: ()=> import('@/routes/User/Login'),
+                },
+                {
+                    path: '/user/register',
+                    component: ()=> import('@/routes/User/Register'),
+                },
+                {
+                    path: '/user/register-result',
+                    component: ()=> import('@/routes/User/RegisterResult'),
+                },
+            ]
         },
         {
             path: '/',

@@ -27,7 +27,8 @@ import {
     DatePicker,
     Radio,
     Table,
-    Divider
+    Divider,
+    Breadcrumb
 } from "ant-design-vue";
 
 const { Content, Header, Footer, Sider } = Layout;
@@ -40,6 +41,9 @@ const ListItemMeta = List.Item.Meta;
 const { RangePicker } = DatePicker;
 const RadioGroup = Radio.Group;
 const RadioButton = Radio.Button;
+const CardGrid = Card.Grid;
+const CardMeta = Card.Meta;
+const BreadcrumbItem = Breadcrumb.Item;
 
 Vue.config.productionTip = false;
 
@@ -67,6 +71,8 @@ Vue.component(MenuSubMenu.name, MenuSubMenu);
 Vue.component(Row.name, Row);
 Vue.component(Col.name, Col);
 Vue.component(Card.name, Card);
+Vue.component(CardGrid.name, CardGrid);
+Vue.component(CardMeta.name, CardMeta);
 Vue.component(DatePicker.name, DatePicker);
 Vue.component(RangePicker.name, RangePicker);
 Vue.component(Radio.name, Radio);
@@ -74,6 +80,8 @@ Vue.component(RadioGroup.name, RadioGroup);
 Vue.component(RadioButton.name, RadioButton);
 Vue.component(Table.name, Table);
 Vue.component(Divider.name, Divider);
+Vue.component(Breadcrumb.name, Breadcrumb);
+Vue.component(BreadcrumbItem.name, BreadcrumbItem);
 
 
 

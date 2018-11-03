@@ -116,7 +116,6 @@ export default {
         }
         return newNotice;
       });
-
       return groupBy(newNotices, "type");
     },
     onTabChange(tabType) {
