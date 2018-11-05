@@ -52,7 +52,18 @@ export default new Router({
                     children: [
                         {
                             path: '/form/step-form/info',
+                            name: '分步表单（填写转账信息）',
                             component: ()=> import('@/routes/Form/StepForm/Info'),
+                        },
+                        {
+                            path: '/form/step-form/confirm',
+                            name: '分步表单（确认转账信息）',
+                            component: ()=> import('@/routes/Form/StepForm/Confirm'),
+                        },
+                        {
+                            path: '/form/step-form/result',
+                            name: '分步表单（完成）',
+                            component: ()=> import('@/routes/Form/StepForm/StepFormResult'),
                         },
                     ]
                 },

@@ -35,7 +35,7 @@
             </div>
             <div class="main">
                 <div class="row">
-                    <h1 v-if="title" class="title">
+                    <h1 class="title">
                         {{title}}
                         <slot name="title"/>
                     </h1>
@@ -165,6 +165,9 @@ export default {
                 }
                 routerData[`${item.path}`] = {
                     component: item.component
+                };
+                if (item.name) {
+                    routerData[`${item.path}`].name = item.name;
                 }
             });
         }

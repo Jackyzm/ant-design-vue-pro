@@ -1,7 +1,7 @@
 <template>
     <div style="margin: -24px -24px 0;" :class="wrapperClassName">
         <slot name="top" />
-        <PageHeader key="pageheader" :routerLocation="$route">
+        <PageHeader key="pageheader" :routerLocation="$route" :title="title" :tabActiveKey="tabActiveKey">
             <template slot="extraContent">
                 <slot name="extraContent" />
             </template>
@@ -25,6 +25,14 @@ export default {
     },
     props:{
         wrapperClassName: {
+            type:String,
+            default: ''
+        },
+        title:{
+            type:String,
+            default: ''
+        },
+        tabActiveKey: {
             type:String,
             default: ''
         }

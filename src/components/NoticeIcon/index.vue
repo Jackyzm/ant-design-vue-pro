@@ -5,6 +5,7 @@
         arrowPointAtCenter
         :popupAlign="popupAlign"
         @visibleChange="onPopupVisibleChange"
+        overlayClassName="NoticeIcon"
       >
         <template slot="content">
             <a-spin :spinning="loading" :delay="0">
@@ -124,9 +125,11 @@ export default {
   }
 };
 </script>
-
 <style lang="less">
 @import "./index.less";
+</style>
+
+<style lang="less" scoped>
 .noticeButton {
   cursor: pointer;
   display: inline-block;

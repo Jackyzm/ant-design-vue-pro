@@ -28,7 +28,10 @@ import {
     Radio,
     Table,
     Divider,
-    Breadcrumb
+    Breadcrumb,
+    Form,
+    Select,
+    Popconfirm
 } from "ant-design-vue";
 
 const { Content, Header, Footer, Sider } = Layout;
@@ -44,6 +47,7 @@ const RadioButton = Radio.Button;
 const CardGrid = Card.Grid;
 const CardMeta = Card.Meta;
 const BreadcrumbItem = Breadcrumb.Item;
+const FormItem = Form.Item;
 
 Vue.config.productionTip = false;
 
@@ -82,7 +86,11 @@ Vue.component(Table.name, Table);
 Vue.component(Divider.name, Divider);
 Vue.component(Breadcrumb.name, Breadcrumb);
 Vue.component(BreadcrumbItem.name, BreadcrumbItem);
-
+Vue.component(Form.name, Form);
+Vue.component(FormItem.name, FormItem);
+Vue.component(Select.name, Select);
+Vue.component(Select.Option.name, Select.Option);
+Vue.component(Popconfirm.name, Popconfirm);
 
 
 Vue.component(Content.name, Content);
