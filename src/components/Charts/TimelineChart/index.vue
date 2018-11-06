@@ -1,7 +1,7 @@
 <template>
     <div class="timelineChart" :style="'height: '+(height+30)+'px'">
         <div>
-            <h4 v-if="title">{{title}}</h4>
+            <h4 v-if="title">{{ title }}</h4>
             <ve-line :data="chartData" :colors="colors" :settings="chartSettings" :extend="chartExtend" :data-zoom="dataZoom" />
         </div>
     </div>
@@ -9,7 +9,7 @@
 
 <script>
 import VeLine from "v-charts/lib/line.common";
-import 'echarts/lib/component/dataZoom';
+import "echarts/lib/component/dataZoom";
 export default {
   name: "TimelineChart",
   components: {
@@ -63,12 +63,12 @@ export default {
       labelMap: this.titleMap
     };
     this.dataZoom = [
-        {
-          type: 'slider',
-          start: 0,
-          end: 100
-        }
-      ]
+      {
+        type: "slider",
+        start: 0,
+        end: 100
+      }
+    ];
     this.chartExtend = {
       grid: {
         // top: 20,
@@ -107,7 +107,7 @@ export default {
         symbolSize: 2,
         showSymbol: false,
         smooth: false
-      },
+      }
     };
     return {};
   }

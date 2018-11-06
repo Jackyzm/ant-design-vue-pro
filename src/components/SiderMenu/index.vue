@@ -24,14 +24,13 @@
             :selectedKeys="selectedKeys"
             style="padding: 16px 0; width: 100%"
         >
-            <ThreeMenu :menuData="menuData"/>
+            <ThreeMenu :menuData="menuData" />
         </a-menu>
     </a-layout-sider>
 </template>
 
 <script>
 import { urlToList } from "../_utils/pathTools";
-import cloneDeep from "lodash/cloneDeep";
 import ThreeMenu from "./ThreeMenu";
 
 export default {
@@ -57,7 +56,7 @@ export default {
     }
   },
   mounted() {
-    let pathArr = urlToList(this.location.path);
+    const pathArr = urlToList(this.location.path);
     if (pathArr[2] && !this.checkPath(pathArr[2])) {
       this.openKeys = [pathArr[0]];
       this.selectedKeys = [pathArr[1]];
@@ -72,7 +71,7 @@ export default {
   watch: {
     collapsed: "collapsedChange",
     $route() {
-      let pathArr = urlToList(this.location.path);
+      const pathArr = urlToList(this.location.path);
       if (pathArr[2] && !this.checkPath(pathArr[2])) {
         this.openKeys = [pathArr[0]];
         this.selectedKeys = [pathArr[1]];
@@ -99,7 +98,7 @@ export default {
         data.map(item => {
           if (item.path == url) status = true;
           if (item.children) {
-            haveChildren(item.children);
+            haveChildren(item.children); // eslint-disable-line
           }
         });
       };
@@ -124,14 +123,17 @@ export default {
         this.openKeys = openKeys;
       }
     },
+    // eslint-disable-next-line
     selected({ item, key, selectedKeys }) {
       this.selectedKeys = selectedKeys;
     },
+    // eslint-disable-next-line
     collapsedChange(val, oldVal) {
+      // eslint-disable-line
       if (val) {
         this.openKeys = [];
       } else {
-        let pathArr = urlToList(this.location.path);
+        const pathArr = urlToList(this.location.path);
         if (pathArr[2]) {
           this.openKeys = [pathArr[0], pathArr[1]];
         } else {

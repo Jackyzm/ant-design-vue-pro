@@ -7,17 +7,17 @@
             style="margin-bottom: 24px;"
         />
         <a-form-item v-bind="formItemLayout" class="stepFormText" label="付款账户">
-            {{data.payAccount}}
+            {{ data.payAccount }}
         </a-form-item>
         <a-form-item v-bind="formItemLayout" class="stepFormText" label="收款账户">
-            {{data.receiverAccount}}
+            {{ data.receiverAccount }}
         </a-form-item>
         <a-form-item v-bind="formItemLayout" class="stepFormText" label="收款人姓名">
-            {{data.receiverName}}
+            {{ data.receiverName }}
         </a-form-item>
         <a-form-item v-bind="formItemLayout" class="stepFormText" label="转账金额">
-            <span class="money">{{data.amount}}</span>
-            <span class="uppercase">（{{digitUppercase(data.amount)}}）</span>
+            <span class="money">{{ data.amount }}</span>
+            <span class="uppercase">（{{ digitUppercase(data.amount) }}）</span>
         </a-form-item>
         <a-divider style="margin: 24px 0;" />
         <a-form-item

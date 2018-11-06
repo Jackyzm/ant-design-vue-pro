@@ -1,5 +1,4 @@
 import { notification } from 'ant-design-vue';
-import router from '../router';
 
 const codeMessage = {
     200: '服务器成功返回请求的数据。',

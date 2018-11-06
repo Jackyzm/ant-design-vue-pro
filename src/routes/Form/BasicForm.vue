@@ -8,6 +8,7 @@ const BasicForm = {
       e.preventDefault();
       this.form.validateFieldsAndScroll((err, values) => {
         if (!err) {
+            console.log(values);
           // this.props.dispatch({
           //   type: 'form/submitRegularForm',
           //   payload: values,

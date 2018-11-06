@@ -1,4 +1,4 @@
-<template >
+<template>
     <PageHeaderLayout
         title="高级表单"
         wrapperClassName="advancedForm"
@@ -28,7 +28,6 @@
                                 rules: [{ required: true, message: '请选择' }],
                             }"
                         >
-
                             <a-input
                                 style="width: 100%;"
                                 addonBefore="http://"
@@ -188,11 +187,11 @@
                     initialValue: tableData,
                 }"
             >
-                <TableForm :onChange="(data)=>this.changeMembers(data)"/>
+                <TableForm :onChange="(data)=>this.changeMembers(data)" />
             </a-form-item>
         </a-card>
         <FooterToolbar :style="`width: ${width}`">
-          <span v-if="!(form && form.getFieldsError()) || (form && Object.keys(form.getFieldsError()).filter(key => form.getFieldsError()[key]).length === 0)"></span>
+          <span v-if="!(form && form.getFieldsError()) || (form && Object.keys(form.getFieldsError()).filter(key => form.getFieldsError()[key]).length === 0)" />
             <span v-else class="errorIcon">
                 <a-popover
                     title="表单校验信息"
@@ -203,13 +202,13 @@
                     <template slot="content" v-for="key in (form && Object.keys(form.getFieldsError()) || [])">
                         <li v-if="form.getFieldsError()[key]" :key="key" class="errorListItem" @click="() => scrollToField(key)">
                             <a-icon type="cross-circle-o" class="errorIcon" />
-                            <div class="errorMessage">{{form.getFieldsError()[key][0]}}</div>
-                            <div class="errorField">{{fieldLabels[key]}}</div>
+                            <div class="errorMessage">{{ form.getFieldsError()[key][0] }}</div>
+                            <div class="errorField">{{ fieldLabels[key] }}</div>
                         </li>
                     </template>
                     <a-icon type="exclamation-circle" />
                 </a-popover>
-                {{Object.keys(form.getFieldsError()).filter(key => form.getFieldsError()[key]).length}}
+                {{ Object.keys(form.getFieldsError()).filter(key => form.getFieldsError()[key]).length }}
             </span>
             <a-button type="primary" @click="validate" :loading="submitting">
                 提交

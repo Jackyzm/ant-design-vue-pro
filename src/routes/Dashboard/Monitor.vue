@@ -15,7 +15,7 @@
                             <NumberInfo subTitle="销售目标完成率" total="92%" />
                         </a-col>
                         <a-col :md="6" :sm="12" :xs="24">
-                            <NumberInfo subTitle="活动剩余时间" >
+                            <NumberInfo subTitle="活动剩余时间">
                                 <template slot="total">
                                     <CountDown :target="targetTime" />
                                 </template>
@@ -111,12 +111,16 @@
 
 <script>
 import NumberInfo from "@/components/NumberInfo";
-import CountDown from '@/components/CountDown';
-import ActiveChart from '@/components/ActiveChart';
+import CountDown from "@/components/CountDown";
+import ActiveChart from "@/components/ActiveChart";
 import numeral from "numeral";
-import { getTimeDistance } from "@/utils/utils";
-import moment from "moment";
-import { colors, MiniPie, Gauge, TagCloud, WaterWave } from "@/components/Charts";
+import {
+  colors,
+  MiniPie,
+  Gauge,
+  TagCloud,
+  WaterWave
+} from "@/components/Charts";
 export default {
   name: "Monitor",
   components: {
@@ -128,13 +132,13 @@ export default {
     TagCloud,
     WaterWave
   },
-  created(){
-      this.$store.dispatch('monitor/getTagsData');
+  created() {
+    this.$store.dispatch("monitor/getTagsData");
   },
-  computed:{
-      tags() {
-          return this.$store.state.monitor.data || [];
-      }
+  computed: {
+    tags() {
+      return this.$store.state.monitor.data || [];
+    }
   },
   data() {
     return {

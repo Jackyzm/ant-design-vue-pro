@@ -44,18 +44,18 @@
                     </template>
                     <a-card-grid v-for="item in notice" class="projectGrid" :key="item.id">
                         <a-card :bodyStyle="{ padding: 0 }" :bordered="false">
-                            <a-card-meta :description="item.description" >
+                            <a-card-meta :description="item.description">
                                 <template slot="title">
                                     <div class="cardTitle">
                                         <a-avatar size="small" :src="item.logo" />
-                                        <router-link :to="item.href">{{item.title}}</router-link>
+                                        <router-link :to="item.href">{{ item.title }}</router-link>
                                     </div>
                                 </template>
                             </a-card-meta>
                             <div class="projectItemContent">
-                            <a to="memberLink">{{item.member || ''}}</a>
+                            <a to="memberLink">{{ item.member || '' }}</a>
                                 <span v-if="item.updatedAt" class="datetime" title="item.updatedAt">
-                                    {{moment(item.updatedAt).fromNow()}}
+                                    {{ moment(item.updatedAt).fromNow() }}
                                 </span>
                             </div>
                         </a-card>
@@ -77,21 +77,21 @@
                                 </template>
                                 <template slot="title">
                                     <span>
-                                        <a class="username">{{item.user.name}}</a>
+                                        <a class="username">{{ item.user.name }}</a>
                                         &nbsp;
                                         <span class="event">
                                             <template v-for="(key,index) in item.template.split(/@\{([^{}]*)\}/gi)">
                                                 <a v-if="item[key]" :href="item[key].link" :key="item[key].name">
-                                                    {{item[key].name}}
+                                                    {{ item[key].name }}
                                                 </a>
-                                                <span v-else :key="index">{{key}}</span>
+                                                <span v-else :key="index">{{ key }}</span>
                                             </template>
                                         </span>
                                     </span>
                                 </template>
                                 <template slot="description">
                                     <span class="datetime" :title="item.updatedAt">
-                                        {{moment(item.updatedAt).fromNow()}}
+                                        {{ moment(item.updatedAt).fromNow() }}
                                     </span>
                                 </template>
                             </a-list-item-meta>
@@ -125,7 +125,7 @@
                             <a-col v-for="item in members" :span="12" style="padding-right: 0;" :key="`members-item-${item.id}`">
                                 <router-link :to="item.link">
                                     <a-avatar :src="item.logo" size="small" />
-                                    <span class="member">{{item.title}}</span>
+                                    <span class="member">{{ item.title }}</span>
                                 </router-link>
                             </a-col>
                         </a-row>
@@ -158,9 +158,9 @@ export default {
   filters: {
     dealWithChartData(value) {
       const arr = groupBy(value, "name");
-      let newArr = [];
+      const newArr = [];
       Object.entries(arr).map(item => {
-        let obj = {
+        const obj = {
           name: item[0]
         };
         item[1].map(val => {

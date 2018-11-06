@@ -1,5 +1,5 @@
 <template>
-    <div class="waterWave" ref="root" :style="{ transform: `scale(${radio})` }" >
+    <div class="waterWave" ref="root" :style="{ transform: `scale(${radio})` }">
         <div :style="`width: ${height}px; height: ${height}px; overflow: hidden;`">
             <canvas
                 class="waterWaveCanvasWrapper"
@@ -9,8 +9,8 @@
             />
         </div>
         <div class="text" :style="`width: ${height}px`">
-            <span v-if="title">{{title}}</span>
-            <h4>{{percent}}%</h4>
+            <span v-if="title">{{ title }}</span>
+            <h4>{{ percent }}%</h4>
         </div>
     </div>
 </template>
@@ -37,17 +37,17 @@ export default {
     }
   },
   mounted() {
-      this.renderChart();
+    this.renderChart();
     this.resize();
 
-    window.addEventListener('resize', this.resize);
+    window.addEventListener("resize", this.resize);
   },
-  destroyed(){
+  destroyed() {
     cancelAnimationFrame(this.timer);
     if (this.$refs.node) {
-      this.$refs.node.innerHTML = '';
+      this.$refs.node.innerHTML = "";
     }
-    window.removeEventListener('resize', this.resize);
+    window.removeEventListener("resize", this.resize);
   },
   data() {
     return {
@@ -194,9 +194,9 @@ export default {
       render();
     },
     resize() {
-        const { offsetWidth } = this.$refs.root.parentNode;
-        this.radio = offsetWidth < this.height ? offsetWidth / this.height : 1;
-    },
+      const { offsetWidth } = this.$refs.root.parentNode;
+      this.radio = offsetWidth < this.height ? offsetWidth / this.height : 1;
+    }
   }
 };
 </script>

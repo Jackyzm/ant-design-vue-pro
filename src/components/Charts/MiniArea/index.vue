@@ -22,8 +22,8 @@ export default {
       type: Array
     },
     color: {
-        type: String,
-        default: "#1890FF"
+      type: String,
+      default: "#1890FF"
     }
   },
   computed: {
@@ -41,32 +41,35 @@ export default {
     };
     this.chartExtend = {
       grid: {
-        right:0,
+        right: 0,
         top: 20,
         bottom: 50,
-        left: 0,
+        left: 0
       },
       yAxis: {
         show: false,
-        axisLabel:{
-            show:false,
+        axisLabel: {
+          show: false
         }
       },
       xAxis: {
         show: false,
-        axisLabel:{
-            show:false
+        axisLabel: {
+          show: false
         }
       },
-      tooltip:{
-        formatter: function (params, ticket, callback) {
-            return `${params[0].marker} ${params[0].axisValue}: ${params[0].value[1]}`;
+      tooltip: {
+        // eslint-disable-next-line
+        formatter: function(params, ticket, callback) {
+          return `${params[0].marker} ${params[0].axisValue}: ${
+            params[0].value[1]
+          }`;
         }
       },
       series: {
-          symbol: 'circle',
-          symbolSize: 2,
-          showSymbol: false
+        symbol: "circle",
+        symbolSize: 2,
+        showSymbol: false
       }
     };
     return {};

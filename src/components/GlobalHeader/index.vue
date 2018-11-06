@@ -45,14 +45,14 @@
                     <a-menu-item key="triggerError">
                         <a-icon type="close-circle" />触发报错
                     </a-menu-item>
-                    <a-menu-divider/>
+                    <a-menu-divider />
                     <a-menu-item key="logout">
                         <a-icon type="logout" />退出登录
                     </a-menu-item>
                 </a-menu>
                 <span class='action account'>
                     <a-avatar size="small" class="avatar" :src="currentUser.avatar" />
-                    <span class="name">{{currentUser.name}}</span>
+                    <span class="name">{{ currentUser.name }}</span>
                 </span>
             </a-dropdown>
             <a-spin v-else size="small" style="margin-left: 8px" />
@@ -62,7 +62,7 @@
 
 <script>
 import HeaderSearch from "../HeaderSearch";
-import NoticeIcon from '../NoticeIcon';
+import NoticeIcon from "../NoticeIcon";
 export default {
   name: "GlobalHeader",
   components: {
@@ -71,7 +71,7 @@ export default {
   },
   props: {
     currentUser: {
-      type: Object,
+      type: Object
     },
     collapsed: {
       type: Boolean
@@ -79,21 +79,21 @@ export default {
     onCollapse: {
       type: Function
     },
-    onNoticeVisibleChange:{
-        type: Function
+    onNoticeVisibleChange: {
+      type: Function
     },
-    onNoticeClear:{
-        type:Function
+    onNoticeClear: {
+      type: Function
     },
-    fetchingNotices:{
-        type:Boolean
+    fetchingNotices: {
+      type: Boolean
     },
-    notices:{
-        type:Array
+    notices: {
+      type: Array
     },
     onMenuClick: {
-        type: Function,
-        default: ()=>{}
+      type: Function,
+      default: () => {}
     }
   },
   data() {
@@ -104,13 +104,13 @@ export default {
       this.onCollapse(!this.collapsed);
     },
     onSearch(value) {
-        console.log('input', value)
+      console.log("input", value);
     },
     onPressEnter(value) {
-        console.log('enter', value)
+      console.log("enter", value);
     },
     onItemClick(item, tabProps) {
-        console.log(item, tabProps);
+      console.log(item, tabProps);
     }
   }
 };
@@ -121,16 +121,16 @@ export default {
 </style>
 <style lang="less">
 .ant-layout {
-    min-height: 100vh;
-    overflow-x: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 .menu {
-    .anticon {
-        margin-right: 8px;
-    }
-    .ant-dropdown-menu-item {
-        width: 160px;
-    }
+  .anticon {
+    margin-right: 8px;
+  }
+  .ant-dropdown-menu-item {
+    width: 160px;
+  }
 }
 </style>
 

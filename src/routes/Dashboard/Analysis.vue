@@ -13,7 +13,7 @@
                         </a-tooltip>
                     </template>
                     <template slot="total">
-                        <span>{{yuan(126560)}}</span>
+                        <span>{{ yuan(126560) }}</span>
                     </template>
                     <template slot="content">
                         <Trend flag="up" style="margin-right: 16px">
@@ -44,7 +44,7 @@
                         </a-tooltip>
                     </template>
                     <template slot="total">
-                        <span>{{numeral(8846).format('0,0')}}</span>
+                        <span>{{ numeral(8846).format('0,0') }}</span>
                     </template>
                     <template slot="content">
                         <MiniArea color="#975FE4" :data="visitData" />
@@ -66,7 +66,7 @@
                         </a-tooltip>
                     </template>
                     <template slot="total">
-                        <span>{{numeral(6560).format('0,0')}}</span>
+                        <span>{{ numeral(6560).format('0,0') }}</span>
                     </template>
                     <template slot="content">
                         <MiniBar :data="visitData" />
@@ -116,7 +116,7 @@
                 <a-tabs size="large" :tabBarStyle="{'marginBottom': 24}">
                     <template slot="tabBarExtraContent">
                         <div class="salesExtraWrap">
-                            <div class="salesExtra" >
+                            <div class="salesExtra">
                                 <a :class="isActive('today')" @click="() => this.selectDate('today')">今日</a>
                                 <a :class="isActive('week')" @click="() => this.selectDate('week')">本周</a>
                                 <a :class="isActive('month')" @click="() => this.selectDate('month')">本月</a>
@@ -141,9 +141,9 @@
                                 <h4 class="rankingTitle">门店销售额排名</h4>
                                 <ul class="rankingList">
                                     <li v-for="(item, i) in rankingListData" :key="item.title">
-                                        <span :class="i < 3 ? 'active' : ''">{{i + 1}}</span>
-                                        <span>{{item.title}}</span>
-                                        <span>{{numeral(item.total).format('0,0')}}</span>
+                                        <span :class="i < 3 ? 'active' : ''">{{ i + 1 }}</span>
+                                        <span>{{ item.title }}</span>
+                                        <span>{{ numeral(item.total).format('0,0') }}</span>
                                     </li>
                                 </ul>
                                 </div>
@@ -162,9 +162,9 @@
                                 <h4 class="rankingTitle">门店访问量排名</h4>
                                 <ul class="rankingList">
                                     <li v-for="(item, i) in rankingListData" :key="item.title">
-                                        <span :class="i < 3 ? 'active' : ''">{{i + 1}}</span>
-                                        <span>{{item.title}}</span>
-                                        <span>{{numeral(item.total).format('0,0')}}</span>
+                                        <span :class="i < 3 ? 'active' : ''">{{ i + 1 }}</span>
+                                        <span>{{ item.title }}</span>
+                                        <span>{{ numeral(item.total).format('0,0') }}</span>
                                     </li>
                                 </ul>
                                 </div>
@@ -401,7 +401,7 @@ export default {
       );
     },
     salesPieData() {
-      let allData = this.$store.state.analysis.chartData;
+      const allData = this.$store.state.analysis.chartData;
       return (
         (this.salesType === "all"
           ? allData["salesTypeData"]
@@ -411,7 +411,7 @@ export default {
       );
     },
     offlineChartData() {
-      let arr = this.$store.state.analysis.chartData.offlineChartData;
+      const arr = this.$store.state.analysis.chartData.offlineChartData;
       arr.map(item => {
         return (item.x = moment(item.x).format("HH:mm"));
       });

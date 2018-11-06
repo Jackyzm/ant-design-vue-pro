@@ -1,10 +1,10 @@
 <template>
     <div :class="pieClassName" :style="pieStyle">
         <div class="chart">
-            <ve-ring :data="chartData" :height="height+'px'" :colors="colors" :extend="chartExtend"/>
+            <ve-ring :data="chartData" :height="height+'px'" :colors="colors" :extend="chartExtend" />
             <div v-if="subTitle || total" class="total">
-                <h4 v-if="subTitle" class="pie-sub-title">{{subTitle}}</h4>
-                <p v-if="total" class="pie-stat">{{total}}</p>
+                <h4 v-if="subTitle" class="pie-sub-title">{{ subTitle }}</h4>
+                <p v-if="total" class="pie-stat">{{ total }}</p>
             </div>
         </div>
     </div>
@@ -12,7 +12,6 @@
 
 <script>
 import VeRing from "v-charts/lib/ring.common";
-import cloneDeep from "lodash/cloneDeep";
 
 export default {
   name: "MiniPie",
@@ -27,17 +26,14 @@ export default {
       }`;
     },
     chartData() {
-        return {
-          columns: ["x", "y"],
-          rows: [
-              {x:'x', y: this.percent},
-              {x:'x1', y: (100-this.percent)},
-          ]
-        };
-      },
-      colors() {
-          return [this.color? this.color:'#1890FF','#ccc']
-      }
+      return {
+        columns: ["x", "y"],
+        rows: [{ x: "x", y: this.percent }, { x: "x1", y: 100 - this.percent }]
+      };
+    },
+    colors() {
+      return [this.color ? this.color : "#1890FF", "#ccc"];
+    }
   },
   props: {
     className: {
@@ -46,19 +42,19 @@ export default {
     },
     color: {
       type: String,
-      default: ''
+      default: ""
     },
     pieStyle: {
-        type: String,
-        default: ''
+      type: String,
+      default: ""
     },
     percent: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0
     },
-    height:{
-        type: Number,
-        default: 0
+    height: {
+      type: Number,
+      default: 0
     },
     subTitle: {
       type: String,
@@ -68,14 +64,14 @@ export default {
       type: String,
       default: ""
     },
-    radius:{
-        type: Array,
-        default: ()=>{[]}
+    radius: {
+      type: Array,
+      default: () => {
+        [];
+      }
     }
   },
-  methods: {
-
-  },
+  methods: {},
   data() {
     this.chartExtend = {
       grid: {},
@@ -83,7 +79,7 @@ export default {
         show: false
       },
       tooltip: {
-        show:false
+        show: false
       },
       series: {
         label: {
@@ -98,8 +94,7 @@ export default {
         }
       }
     };
-    return {
-    };
+    return {};
   }
 };
 </script>

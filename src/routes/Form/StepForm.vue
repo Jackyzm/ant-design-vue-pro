@@ -13,7 +13,7 @@
                     <Step title="确认转账信息" />
                     <Step title="完成" />
                 </Steps>
-                <router-view></router-view>
+                <router-view />
             </div>
         </a-card>
     </PageHeaderLayout>

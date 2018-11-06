@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ve-gauge :data="chartData" :settings="chartSettings" :background-color="bgColor" :height="height+'px'" :extend="chartExtend"/>
+        <ve-gauge :data="chartData" :settings="chartSettings" :background-color="bgColor" :height="height+'px'" :extend="chartExtend" />
     </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
       type: Number,
       default: 0
     },
-    GaugeStyle: {
+    gaugeStyle: {
       type: String,
       default: ""
     },

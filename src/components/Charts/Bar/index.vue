@@ -1,7 +1,7 @@
 <template>
     <div class="chart" :style="'height:'+height+'px;'">
         <div>
-            <h4 v-if="title" style="margin-bottom: 20px;">{{title}}</h4>
+            <h4 v-if="title" style="margin-bottom: 20px;">{{ title }}</h4>
             <ve-histogram height="254px" :legend-visible="false" :colors="[color]" :data="chartData" :extend="chartExtend"></ve-histogram>
         </div>
     </div>
@@ -71,6 +71,7 @@ export default {
         }
       },
       tooltip: {
+        // eslint-disable-next-line
         formatter: function(params, ticket, callback) {
           return `${params[0].marker} ${params[0].axisValue}: ${
             params[0].value

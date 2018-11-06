@@ -7,15 +7,15 @@
         <div v-if="activeData" class="activeChartGrid">
             <!-- <p>{{[...activeData].sort()[activeData.length - 1].y + 200}} 亿元</p> -->
             <!-- <p>{{[...activeData].sort()[Math.floor(activeData.length / 2)].y}} 亿元</p> -->
-            <p>{{y1}}</p>
-            <p>{{y2}}</p>
+            <p>{{ y1 }}</p>
+            <p>{{ y2 }}</p>
         </div>
         <div v-if="activeData" class="activeChartLegend">
             <span>00:00</span>
             <!-- <span>{{activeData[Math.floor(activeData.length / 2)].x}}</span> -->
             <!-- <span>{{activeData[activeData.length - 1].x}}</span> -->
-            <span>{{x1}}</span>
-            <span>{{x2}}</span>
+            <span>{{ x1 }}</span>
+            <span>{{ x2 }}</span>
         </div>
       </div>
 </template>

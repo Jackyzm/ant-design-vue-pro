@@ -22,12 +22,12 @@ export default {
       type: Array
     },
     color: {
-        type: String,
-        default: "#1890FF"
+      type: String,
+      default: "#1890FF"
     },
     forceFit: {
-        type: Boolean,
-        default: true,
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -42,30 +42,33 @@ export default {
   data() {
     this.chartExtend = {
       grid: {
-        right:0,
+        right: 0,
         top: 10,
-        bottom:55,
-        left: 0,
+        bottom: 55,
+        left: 0
       },
       yAxis: {
         show: false,
-        axisLabel:{
-            show:false,
+        axisLabel: {
+          show: false
         }
       },
       xAxis: {
         show: false,
-        axisLabel:{
-            show:false
+        axisLabel: {
+          show: false
         }
       },
-      tooltip:{
+      tooltip: {
+        // eslint-disable-next-line
         formatter: function(params, ticket, callback) {
-            return `${params[0].marker} ${params[0].axisValue}: ${params[0].value}`;
+          return `${params[0].marker} ${params[0].axisValue}: ${
+            params[0].value
+          }`;
         }
       },
-      series:{
-          barMaxWidth: '50%',
+      series: {
+        barMaxWidth: "50%"
       }
     };
     return {};

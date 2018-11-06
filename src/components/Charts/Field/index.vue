@@ -1,7 +1,7 @@
 <template>
     <div class='field' :style="fieldStyle">
-        <span>{{label}}</span>
-        <span>{{value}}</span>
+        <span>{{ label }}</span>
+        <span>{{ value }}</span>
     </div>
 </template>
 
@@ -16,8 +16,8 @@ export default {
       type: String
     },
     fieldStyle: {
-        type: String,
-        default: ''
+      type: String,
+      default: ""
     }
   }
 };

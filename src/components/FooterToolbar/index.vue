@@ -11,16 +11,16 @@
 
 <script>
 export default {
-    name: "FooterToolbar",
-    props:{
-        className: {
-            type: String,
-            default: ''
-        }
+  name: "FooterToolbar",
+  props: {
+    className: {
+      type: String,
+      default: ""
     }
-}
+  }
+};
 </script>
 
 <style lang="less" scoped>
-@import './index.less';
+@import "./index.less";
 </style>

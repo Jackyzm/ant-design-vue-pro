@@ -1,18 +1,18 @@
 <template>
     <div class="radar" :style="`height: ${height}px;`">
         <h4>
-            {{title}}
-            <slot name="title"/>
+            {{ title }}
+            <slot name="title" />
         </h4>
-        <ve-radar :data="chartData" :radar="radar" :extend="chartExtend"/>
+        <ve-radar :data="chartData" :radar="radar" :extend="chartExtend" />
         <a-row v-if="hasLegend" class="legend">
-            <a-col v-for="(item, i) in legendData" :span="24 / legendData.length" :key="item.name" @click="() => this.handleLegendClick(item, i)" >
+            <a-col v-for="(item, i) in legendData" :span="24 / legendData.length" :key="item.name" @click="() => this.handleLegendClick(item, i)">
                 <div class="legendItem">
                     <p>
                         <span class="dot" :style="`background-color: ${!item.checked ? '#aaa' : item.color};`" />
-                        <span>{{item.name}}</span>
+                        <span>{{ item.name }}</span>
                     </p>
-                    <h6>{{item.value}}</h6>
+                    <h6>{{ item.value }}</h6>
                 </div>
             </a-col>
         </a-row>
@@ -52,10 +52,9 @@ export default {
       }
     },
     max: {
-        type: Number,
-        default: 15
+      type: Number,
+      default: 15
     }
-
   },
   computed: {
     legendData() {
@@ -66,22 +65,22 @@ export default {
         columns: this.columns,
         rows: this.data
       };
-    },
+    }
   },
   data() {
-    this.radar = {
-        shape: "polygon",
-        indicator: [
-                {name: '引用', max: this.max},
-                {name: '口碑', max: this.max},
-                {name: '产量', max: this.max},
-                {name: '贡献', max: this.max},
-                {name: '热度', max: this.max},
-            ]
-    },
-    this.chartExtend = {
+    (this.radar = {
+      shape: "polygon",
+      indicator: [
+        { name: "引用", max: this.max },
+        { name: "口碑", max: this.max },
+        { name: "产量", max: this.max },
+        { name: "贡献", max: this.max },
+        { name: "热度", max: this.max }
+      ]
+    }),
+      (this.chartExtend = {
         series: {}
-    };
+      });
     return {};
   }
 };

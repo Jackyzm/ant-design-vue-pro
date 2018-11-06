@@ -1,9 +1,9 @@
 <template>
     <div class="globalFooter">
         <div class="links" v-if="links">
-            <a v-for="link in links" :key="link.key" :target="link.blankTarget ? '_blank' : '_self'" :href="link.href" >
-                <span v-if="link.title != 'github'">{{link.title}}</span>
-                <span v-else=""><a-icon :type="link.title"/></span>
+            <a v-for="link in links" :key="link.key" :target="link.blankTarget ? '_blank' : '_self'" :href="link.href">
+                <span v-if="link.title != 'github'">{{ link.title }}</span>
+                <span v-else=""><a-icon :type="link.title" /></span>
             </a>
         </div>
         <div class="copyright">Copyright <a-icon type="copyright" /> 2018 蚂蚁金服体验技术部出品</div>
@@ -30,7 +30,8 @@ export default {
         {
           key: "Ant Design Vue",
           title: "Ant Design Vue",
-          href: "https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce/",
+          href:
+            "https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce/",
           blankTarget: true
         }
       ]

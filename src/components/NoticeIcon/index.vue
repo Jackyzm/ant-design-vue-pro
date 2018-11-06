@@ -65,7 +65,7 @@ export default {
       type: Array
     },
     loading: {
-        type: Boolean
+      type: Boolean
     }
   },
   computed: {
@@ -75,19 +75,22 @@ export default {
           list: this.getNoticeData()["通知"],
           title: "通知",
           emptyText: "你已查看所有通知",
-          emptyImage: "https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg"
+          emptyImage:
+            "https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg"
         },
         {
           list: this.getNoticeData()["消息"],
           title: "消息",
           emptyText: "您已读完所有消息",
-          emptyImage: "https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"
+          emptyImage:
+            "https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"
         },
         {
           list: this.getNoticeData()["待办"],
           title: "待办",
           emptyText: "你已完成所有待办",
-          emptyImage: "https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg"
+          emptyImage:
+            "https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg"
         }
       ];
     }

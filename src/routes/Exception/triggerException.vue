@@ -19,7 +19,7 @@
 
 <script>
 export default {
-    name: "triggerException",
+    name: "TriggerException",
     data() {
         return {
             isloading: false

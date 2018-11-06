@@ -1,7 +1,7 @@
 <template>
     <div>
         <span>
-            {{result}}
+            {{ result }}
         </span>
     </div>
 </template>

@@ -25,7 +25,7 @@
                     <router-view></router-view>
                 </a-layout-content>
                 <a-layout-footer style="padding: 0">
-                    <GlobalFooter/>
+                    <GlobalFooter />
                 </a-layout-footer>
             </a-layout>
         </a-layout>
@@ -75,20 +75,22 @@ export default {
       message.success(`清空了${type}`);
       this.$store.dispatch("header/clearNotices", { type });
     },
+    // eslint-disable-next-line
     handleMenuCollapse(collapsed) {
       this.collapsed = !this.collapsed;
     },
     handleMenuClick({ key }) {
       if (key === "triggerError") {
-        this.$router.push('/exception/trigger');
+        this.$router.push("/exception/trigger");
         return;
       }
       if (key === "logout") {
-          this.$router.push('/login');
+        this.$router.push("/login");
       }
     },
+    // eslint-disable-next-line
     handleNoticeVisibleChange(visible) {
-        this.$store.dispatch("header/changeFetchNotice");
+      this.$store.dispatch("header/changeFetchNotice");
     }
   }
 };

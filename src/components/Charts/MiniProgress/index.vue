@@ -7,39 +7,39 @@
             </div>
         </a-tooltip>
         <div class="progressWrap">
-            <div class="progress" :style="'background-color: ' + color + '; width: ' + percent+'%;height: ' + strokeWidth" ></div>
+            <div class="progress" :style="'background-color: ' + color + '; width: ' + percent+'%;height: ' + strokeWidth"></div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "MiniProgress",
-    props: {
-        target: {
-            type: Number,
-            default: 0,
-        },
-        color: {
-            type: String,
-            default: ''
-        },
-        strokeWidth: {
-            type: String,
-            default: ''
-        },
-        percent: {
-            type: Number,
-            default: 0,
-        }
+  name: "MiniProgress",
+  props: {
+    target: {
+      type: Number,
+      default: 0
     },
-    data() {
-        return{}
+    color: {
+      type: String,
+      default: ""
+    },
+    strokeWidth: {
+      type: String,
+      default: ""
+    },
+    percent: {
+      type: Number,
+      default: 0
     }
-}
+  },
+  data() {
+    return {};
+  }
+};
 </script>
 
 <style lang="less" scoped>
-@import './index.less';
+@import "./index.less";
 </style>
 

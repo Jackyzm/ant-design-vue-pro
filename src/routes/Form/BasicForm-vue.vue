@@ -143,7 +143,7 @@ export default {
   name: "BasicForm",
   components: {
     PageHeaderLayout,
-    TextArea: Input.TextArea,
+    TextArea: Input.TextArea, // eslint-disable-line
     Radio,
     RadioGroup: Radio.Group,
     InputNumber,
@@ -176,6 +176,7 @@ export default {
       e.preventDefault();
       this.form.validateFieldsAndScroll((err, values) => {
         if (!err) {
+          console.log(values);
           // this.props.dispatch({
           //   type: 'form/submitRegularForm',
           //   payload: values,
@@ -188,5 +189,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import './style.less';
+@import "./style.less";
 </style>

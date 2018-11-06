@@ -12,7 +12,7 @@
                         付款账户：
                     </a-col>
                 <a-col :xs="24" :sm="16">
-                    {{data.payAccount}}
+                    {{ data.payAccount }}
                 </a-col>
                 </a-row>
                 <a-row>
@@ -20,7 +20,7 @@
                         收款账户：
                     </a-col>
                     <a-col :xs="24" :sm="16">
-                        {{data.receiverAccount}}
+                        {{ data.receiverAccount }}
                     </a-col>
                 </a-row>
                 <a-row>
@@ -28,7 +28,7 @@
                         收款人姓名：
                     </a-col>
                     <a-col :xs="24" :sm="16">
-                        {{data.receiverName}}
+                        {{ data.receiverName }}
                     </a-col>
                 </a-row>
                 <a-row>
@@ -36,7 +36,7 @@
                         转账金额：
                     </a-col>
                     <a-col :xs="24" :sm="16">
-                        <span class="money">{{data.amount}}</span> 元
+                        <span class="money">{{ data.amount }}</span> 元
                     </a-col>
                 </a-row>
             </div>

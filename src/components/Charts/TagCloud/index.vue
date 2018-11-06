@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ve-wordcloud :data="chartData" :tooltip-visible="false" :height="`${height}px`" :settings="chartSettings"/>
+        <ve-wordcloud :data="chartData" :tooltip-visible="false" :height="`${height}px`" :settings="chartSettings" />
     </div>
 </template>
 
@@ -43,9 +43,9 @@ export default {
   data() {
     this.chartSettings = {
       color: colors,
-      shape: 'pentagon',
+      shape: "pentagon",
       sizeMin: 12,
-        sizeMax: 14
+      sizeMax: 14
     };
     return {};
   }

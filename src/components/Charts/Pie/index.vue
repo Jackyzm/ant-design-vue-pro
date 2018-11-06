@@ -1,10 +1,10 @@
 <template>
     <div :class="pieClassName" :style="pieStyle">
         <div class="chart">
-            <ve-ring :data="chartData" :height="height+'px'" :colors="colors" :extend="chartExtend"/>
+            <ve-ring :data="chartData" :height="height+'px'" :colors="colors" :extend="chartExtend" />
             <div v-if="subTitle || total" class="total">
-                <h4 v-if="subTitle" class="pie-sub-title">{{subTitle}}</h4>
-                <p v-if="total" class="pie-stat">{{total}}</p>
+                <h4 v-if="subTitle" class="pie-sub-title">{{ subTitle }}</h4>
+                <p v-if="total" class="pie-stat">{{ total }}</p>
             </div>
         </div>
 
@@ -14,12 +14,12 @@
                     class="dot"
                     :style="'background-color: '+ (!item.checked ? '#aaa' : item.color) "
                 />
-                <span class="legendTitle">{{item.x}}</span>
+                <span class="legendTitle">{{ item.x }}</span>
                 <a-divider type="vertical" />
                 <span class="percent">
-                    {{`${(isNaN(item.percent) ? 0 : item.percent * 100).toFixed(2)}%`}}
+                    {{ `${(isNaN(item.percent) ? 0 : item.percent * 100).toFixed(2)}%` }}
                 </span>
-                <span class="value">{{valueFormat ? valueFormat(item.y) : item.y}}</span>
+                <span class="value">{{ valueFormat ? valueFormat(item.y) : item.y }}</span>
             </li>
         </ul>
     </div>
@@ -77,6 +77,7 @@ export default {
     // }
   },
   watch: {
+    // eslint-disable-next-line
     data: function(val, oldVal) {
       this.setChartData();
       this.setLegendData();
@@ -150,7 +151,7 @@ export default {
     },
     setLegendData() {
       if (this.data.length == 0) return [];
-      let arr = cloneDeep(this.data);
+      const arr = cloneDeep(this.data);
       const total = arr.reduce((pre, now) => now.y + pre, 0);
       this.legendData = arr.map((item, index) => {
         item.checked = true;
@@ -167,6 +168,7 @@ export default {
         show: false
       },
       tooltip: {
+        // eslint-disable-next-line
         formatter: function(params, ticket, callback) {
           return `${params.marker} ${params.name}: ${params.value}`;
         }

@@ -11,35 +11,35 @@
         </PageHeader>
         <div class="content">
             <!-- <slot name="content" /> -->
-            <slot/>
+            <slot />
         </div>
     </div>
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader';
+import PageHeader from "@/components/PageHeader";
 export default {
-    name: "PageHeaderLayout",
-    components:{
-        PageHeader
+  name: "PageHeaderLayout",
+  components: {
+    PageHeader
+  },
+  props: {
+    wrapperClassName: {
+      type: String,
+      default: ""
     },
-    props:{
-        wrapperClassName: {
-            type:String,
-            default: ''
-        },
-        title:{
-            type:String,
-            default: ''
-        },
-        tabActiveKey: {
-            type:String,
-            default: ''
-        }
+    title: {
+      type: String,
+      default: ""
+    },
+    tabActiveKey: {
+      type: String,
+      default: ""
     }
-}
+  }
+};
 </script>
 
 <style lang="less" scoped>
-@import './PageHeaderLayout.less';
+@import "./PageHeaderLayout.less";
 </style>

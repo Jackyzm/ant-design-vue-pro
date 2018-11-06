@@ -5,15 +5,26 @@ export default {
   functional: true,
   props: {
     menuData: {
-      type: Array
+      type: Array,
+      default: ()=>{[]}
     }
   },
   render(h, context) {
     const { menuData } = context.props;
     const vnodes = [];
+
+    const getMenuItemPath = item => {
+      return (
+        <router-link to={item.path}>
+          {item.icon ? <a-icon type={item.icon} /> : ""}
+          <span>{item.name}</span>
+        </router-link>
+      );
+    };
+
     const getSubMenuOrItem = item => {
       if (item.children && item.children.some(child => child.name)) {
-        const childrenItems = getNavMenuItems(item.children);
+        const childrenItems = getNavMenuItems(item.children); // eslint-disable-line
         // 当无子菜单时就不展示菜单
         if (childrenItems && childrenItems.length > 0) {
           return (
@@ -40,15 +51,6 @@ export default {
           <a-menu-item key={item.path}>{getMenuItemPath(item)}</a-menu-item>
         );
       }
-    };
-
-    const getMenuItemPath = item => {
-      return (
-        <router-link to={item.path}>
-          {item.icon ? <a-icon type={item.icon} /> : ""}
-          <span>{item.name}</span>
-        </router-link>
-      );
     };
 
     const getNavMenuItems = data => {
