@@ -26,12 +26,10 @@ export default {
   name: "TableForm",
   props: {
     value: {
-      type: Array,
-      default: ()=>{[]}
+      type: Array
     },
     onChange: {
-      type: Function,
-      default: ()=>{}
+      type: Function
     }
   },
   created() {
@@ -39,7 +37,8 @@ export default {
   },
 
   watch: {
-    value(val, oldVal) { // eslint-disable-line
+    // eslint-disable-next-line
+    value(val, oldVal) {
       this.data = val;
     }
   },

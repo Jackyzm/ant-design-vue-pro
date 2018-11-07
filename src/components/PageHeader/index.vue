@@ -29,22 +29,22 @@
             </template>
         </a-breadcrumb>
         <div class="detail">
-            <div class="logo">
+            <div v-if="logo || $slots.logo" class="logo">
                 {{ logo }}
                 <slot name="logo" />
             </div>
             <div class="main">
                 <div class="row">
-                    <h1 class="title">
+                    <h1 v-if="title || $slots.title" class="title">
                         {{ title }}
                         <slot name="title" />
                     </h1>
-                    <div class="action">
+                    <div v-if="action || $slots.action" class="action">
                         {{ action }}
                         <slot name="action" />
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" v-if="$slots.content || $slots.extraContent">
                     <div class="content">
                         <slot name="content" />
                     </div>
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <Tabs
+        <a-tabs
             v-if="tabList && tabList.length"
             class="tabs"
             v-bind="activeKeyProps"
@@ -63,8 +63,8 @@
             <template slot="tabBarExtraContent">
                 <slot name="tabBarExtraContent" />
             </template>
-            <TabPane v-for="item in tabList" :tab="item.tab" :key="item.key" />
-        </Tabs>
+            <a-tab-pane v-for="item in tabList" :tab="item.tab" :key="item.key" />
+        </a-tabs>
     </div>
 </template>
 

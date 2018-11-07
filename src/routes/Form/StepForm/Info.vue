@@ -16,10 +16,6 @@ const Info = {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
-          //   dispatch({
-          //     type: 'form/saveStepFormData',
-          //     payload: values,
-          //   });
           this.$router.push("/form/step-form/confirm");
         }
       });

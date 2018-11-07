@@ -1,9 +1,9 @@
 import Vue from "vue";
 import App from "./App";
 import router from "./router";
-import store from './store';
+import store from "./store";
 
-import 'moment/locale/zh-cn';
+import "moment/locale/zh-cn";
 
 import {
     Button,
@@ -31,7 +31,8 @@ import {
     Breadcrumb,
     Form,
     Select,
-    Popconfirm
+    Popconfirm,
+    Modal
 } from "ant-design-vue";
 
 const { Content, Header, Footer, Sider } = Layout;
@@ -71,6 +72,7 @@ Vue.component(List.name, List);
 Vue.component(ListItem.name, ListItem);
 Vue.component(ListItemMeta.name, ListItemMeta);
 Vue.component(Tag.name, Tag);
+Vue.component(Tag.CheckableTag.name, Tag.CheckableTag);
 Vue.component(MenuSubMenu.name, MenuSubMenu);
 Vue.component(Row.name, Row);
 Vue.component(Col.name, Col);
@@ -91,7 +93,7 @@ Vue.component(FormItem.name, FormItem);
 Vue.component(Select.name, Select);
 Vue.component(Select.Option.name, Select.Option);
 Vue.component(Popconfirm.name, Popconfirm);
-
+Vue.component(Modal.name, Modal);
 
 Vue.component(Content.name, Content);
 Vue.component(Header.name, Header);

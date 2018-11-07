@@ -1,5 +1,5 @@
 <template>
-    <div :class="'numberInfo '+(theme? 'numberInfo'+theme :'')" :style="NumberInfoStyle">
+    <div :class="'numberInfo '+(theme? 'numberInfo'+theme :'')" :style="numberInfoStyle">
         <div v-if="title" class='numberInfoTitle'>{{ title }}</div>
         <div v-if="subTitle" class="numberInfoSubTitle">{{ subTitle }}</div>
         <slot name="subTitle" />

@@ -1,7 +1,7 @@
 <template>
     <div style="margin: -24px -24px 0;" :class="wrapperClassName">
         <slot name="top" />
-        <PageHeader key="pageheader" :routerLocation="$route" :title="title" :tabActiveKey="tabActiveKey">
+        <PageHeader key="pageheader" :routerLocation="$route" :title="title" :tabActiveKey="tabActiveKey" :tabList="tabList" :onTabChange="onTabChange">
             <template slot="extraContent">
                 <slot name="extraContent" />
             </template>
@@ -10,7 +10,6 @@
             </template>
         </PageHeader>
         <div class="content">
-            <!-- <slot name="content" /> -->
             <slot />
         </div>
     </div>
@@ -35,6 +34,12 @@ export default {
     tabActiveKey: {
       type: String,
       default: ""
+    },
+    tabList: {
+      type: Array
+    },
+    onTabChange: {
+      type: Function
     }
   }
 };
