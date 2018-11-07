@@ -4,19 +4,19 @@
             <a-icon v-if="type=='success'" class="success" type="check-circle" />
             <a-icon v-if="type=='error'" class="error" type="close-circle" />
         </div>
-        <div class="title">
+        <div v-if="title || $slots.title" class="title">
             {{ title }}
             <slot name="title" />
         </div>
-        <div class="description">
+        <div v-if="description || $slots.description" class="description">
             {{ description }}
             <slot name="description" />
         </div>
-        <div class="extra">
+        <div v-if="extra || $slots.extra" class="extra">
             {{ extra }}
             <slot name="extra" />
         </div>
-        <div class="actions">
+        <div v-if="actions || $slots.actions" class="actions">
             {{ actions }}
             <slot name="actions" />
         </div>
@@ -55,6 +55,6 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import "./index.less";
 </style>
