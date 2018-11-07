@@ -2,11 +2,17 @@
     <div style="margin: -24px -24px 0;" :class="wrapperClassName">
         <slot name="top" />
         <PageHeader key="pageheader" :routerLocation="$route" :title="title" :tabActiveKey="tabActiveKey" :tabList="tabList" :onTabChange="onTabChange">
+            <template slot="logo">
+                <slot name="logo" />
+            </template>
             <template slot="extraContent">
                 <slot name="extraContent" />
             </template>
             <template slot="content">
                 <slot name="content" />
+            </template>
+            <template slot="action">
+                <slot name="action" />
             </template>
         </PageHeader>
         <div class="content">

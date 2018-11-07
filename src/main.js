@@ -53,6 +53,7 @@ const FormItem = Form.Item;
 Vue.config.productionTip = false;
 
 Vue.component(Button.name, Button);
+Vue.component(Button.Group.name, Button.Group);
 Vue.component(Layout.name, Layout);
 Vue.component(Icon.name, Icon);
 Vue.component(Tooltip.name, Tooltip);
