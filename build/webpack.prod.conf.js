@@ -1,16 +1,16 @@
-'use strict'
-const path = require('path')
-const utils = require('./utils')
-const webpack = require('webpack')
-const config = require('../config')
-const merge = require('webpack-merge')
-const baseWebpackConfig = require('./webpack.base.conf')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const safePostCssParser = require('postcss-safe-parser');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+"use strict";
+const path = require("path");
+const utils = require("./utils");
+const webpack = require("webpack");
+const config = require("../config");
+const merge = require("webpack-merge");
+const baseWebpackConfig = require("./webpack.base.conf");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const safePostCssParser = require("postcss-safe-parser");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: config.build.mode,
@@ -24,11 +24,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     },
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+        filename: utils.assetsPath("js/[name].[chunkhash].js"),
+        chunkFilename: utils.assetsPath("js/[id].[chunkhash].js"),
+        publicPath: config.build.assetsPublicPath
     },
     devtool: false,
-    optimization:{
+    optimization: {
         minimizer: [
             new UglifyJsPlugin({
                 uglifyOptions: {
@@ -40,16 +41,16 @@ const webpackConfig = merge(baseWebpackConfig, {
                 sourceMap: config.build.productionSourceMap,
                 parallel: true
             }),
-            new OptimizeCSSAssetsPlugin({}),
-        ],
+            new OptimizeCSSAssetsPlugin({})
+        ]
     },
     plugins: [
         // new webpack.DefinePlugin({
         //   'process.env': require('../config/prod.env')
         // }),
         new MiniCssExtractPlugin({
-            filename: utils.assetsPath('css/[name].[chunkhash].css'),
-            chunkFilename: utils.assetsPath('css/[id].[chunkhash].css')
+            filename: utils.assetsPath("css/[name].[chunkhash].css"),
+            chunkFilename: utils.assetsPath("css/[id].[chunkhash].css")
         }),
 
         // generate dist index.html with correct asset hash for caching.
@@ -57,7 +58,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
             filename: config.build.index,
-            template: 'index.html',
+            template: "index.html",
             inject: true,
             minify: {
                 removeComments: true,
@@ -65,7 +66,7 @@ const webpackConfig = merge(baseWebpackConfig, {
                 removeAttributeQuotes: true
                 // more options:
                 // https://github.com/kangax/html-minifier#options-quick-reference
-            },
+            }
         }),
         // keep module.id stable when vendor modules does not change
         new webpack.HashedModuleIdsPlugin(),
@@ -74,37 +75,36 @@ const webpackConfig = merge(baseWebpackConfig, {
         // copy custom static assets
         new CopyWebpackPlugin([
             {
-                from: path.resolve(__dirname, '../static'),
+                from: path.resolve(__dirname, "../static"),
                 to: config.build.assetsSubDirectory,
-                ignore: ['.*']
+                ignore: [".*"]
             }
         ]),
 
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
     ]
-})
+});
 
 if (config.build.productionGzip) {
-    const CompressionWebpackPlugin = require('compression-webpack-plugin')
+    const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
     webpackConfig.plugins.push(
         new CompressionWebpackPlugin({
-            asset: '[path].gz[query]',
-            algorithm: 'gzip',
+            asset: "[path].gz[query]",
+            algorithm: "gzip",
             test: new RegExp(
-                '\\.(' +
-                config.build.productionGzipExtensions.join('|') +
-                ')$'
+                "\\.(" + config.build.productionGzipExtensions.join("|") + ")$"
             ),
             threshold: 10240,
             minRatio: 0.8
         })
-    )
+    );
 }
 
 if (config.build.bundleAnalyzerReport) {
-    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-    webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+    const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+        .BundleAnalyzerPlugin;
+    webpackConfig.plugins.push(new BundleAnalyzerPlugin());
 }
 
-module.exports = webpackConfig
+module.exports = webpackConfig;
