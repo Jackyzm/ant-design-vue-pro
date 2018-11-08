@@ -9,7 +9,7 @@ module.exports = {
         mode: "development",
         // Paths
         assetsSubDirectory: "./",
-        assetsPublicPath: "./",
+        assetsPublicPath: "/",
         proxyTable: {
             "/api": {
                 target: "http://localhost:9000/"
