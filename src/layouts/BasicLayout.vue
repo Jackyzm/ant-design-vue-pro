@@ -85,7 +85,7 @@ export default {
         return;
       }
       if (key === "logout") {
-        this.$router.push("/login");
+        this.$router.push("/user/login");
       }
     },
     // eslint-disable-next-line

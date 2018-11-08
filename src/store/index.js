@@ -7,6 +7,7 @@ import tableList from "./models/list/tableList";
 import fakeList from "./models/list/fakeList";
 import basicProfile from "./models/profile/basicProfile";
 import advancedProfile from "./models/profile/advancedProfile";
+import login from "./models/user/login";
 import header from "./models/header";
 import error from "./models/error";
 // import getters from './getters'
@@ -23,6 +24,7 @@ const store = new Vuex.Store({
         fakeList,
         basicProfile,
         advancedProfile,
+        login,
         error
     }
     //   getters
