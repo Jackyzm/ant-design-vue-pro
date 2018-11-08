@@ -332,6 +332,8 @@ import NumberInfo from "@/components/NumberInfo";
 import numeral from "numeral";
 import { getTimeDistance } from "@/utils/utils";
 import moment from "moment";
+import cloneDeep from "lodash/cloneDeep";
+
 import {
   ChartCard,
   yuan,
@@ -411,7 +413,9 @@ export default {
       );
     },
     offlineChartData() {
-      const arr = this.$store.state.analysis.chartData.offlineChartData;
+      const arr = cloneDeep(
+        this.$store.state.analysis.chartData.offlineChartData
+      );
       arr.map(item => {
         return (item.x = moment(item.x).format("HH:mm"));
       });
