@@ -1,7 +1,7 @@
 <template>
     <div style="margin: -24px -24px 0;" :class="wrapperClassName">
         <slot name="top" />
-        <PageHeader key="pageheader" :routerLocation="$route" :title="title" :tabActiveKey="tabActiveKey" :tabList="tabList" :onTabChange="onTabChange">
+        <PageHeader key="pageheader" :routerLocation="$route" :title="title" :tabActiveKey="tabActiveKey" :tabList="tabList" :onTabChange="onTabChange" :getMenuData="getMenuData" :router="router">
             <template slot="logo">
                 <slot name="logo" />
             </template>
@@ -23,6 +23,8 @@
 
 <script>
 import PageHeader from "@/components/PageHeader";
+import router from "@/router";
+import { getMenuData } from "@/layouts/menu";
 export default {
   name: "PageHeaderLayout",
   components: {
@@ -47,6 +49,12 @@ export default {
     onTabChange: {
       type: Function
     }
+  },
+  data() {
+    return {
+      router,
+      getMenuData
+    };
   }
 };
 </script>

@@ -70,10 +70,7 @@
 
 <script>
 import { urlToList } from "../_utils/pathTools";
-import router from "../../router";
-import { getMenuData } from "@/layouts/menu";
 import pathToRegexp from "path-to-regexp";
-
 export default {
   name: "PageHeader",
   components: {},
@@ -112,6 +109,12 @@ export default {
         [];
       }
     },
+    router: {
+      type: Object
+    },
+    getMenuData: {
+      type: Function
+    },
     tabList: {
       type: Array,
       default: () => {
@@ -134,6 +137,9 @@ export default {
     }
     // breadcrumbList?: Array<{ title: React.ReactNode; href?: string }>;
     // tabList?: Array<{ key: string; tab: React.ReactNode }>;
+  },
+  mounted() {
+    this.menuData = this.getMenuData();
   },
   computed: {
     activeKeyProps() {
@@ -170,12 +176,12 @@ export default {
         }
       });
     };
-    mapArr(router.options.routes);
+    mapArr(this.router.options.routes);
     this.routerData = routerData;
   },
   data() {
     return {
-      menuData: getMenuData()
+      menuData: []
     };
   },
   methods: {
