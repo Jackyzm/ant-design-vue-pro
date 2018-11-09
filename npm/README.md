@@ -33,7 +33,3 @@ $ yarn serve
 
 在浏览器中输入 http://localhost:8080
 ```
-
-## 项目示例如下
-
-<img src="./static/example.png"/>

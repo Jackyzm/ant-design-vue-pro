@@ -1,0 +1,50 @@
+{
+    "name": "ant-pro-vue",
+    "version": "1.0.5",
+    "description": "ant-pro-vue",
+    "author": "https://github.com/Jackyzm",
+    "homepage": "https://github.com/Jackyzm/ant-design-vue-pro",
+    "keywords": [
+        "ant-design-vue-pro",
+        "ant-pro",
+        "ant-pro-vue",
+        "ant",
+        "design",
+        "antd",
+        "vue",
+        "vueComponent",
+        "component",
+        "components",
+        "ui",
+        "framework",
+        "frontend"
+    ],
+    "private": false,
+    "main": "components/index.js",
+    "license": "MIT",
+    "scripts": {},
+    "dependencies": {
+        "ant-design-vue": "^1.1.6",
+        "echarts": "^4.2.0-rc.2",
+        "less": "^3.8.1",
+        "less-loader": "^4.1.0",
+        "numeral": "^2.0.6",
+        "v-charts": "^1.18.0",
+        "vue": "^2.5.17",
+        "vue-loader": "^15.4.2",
+        "vue-router": "^3.0.1",
+        "vue-style-loader": "^4.1.2",
+        "vue-template-compiler": "^2.5.17",
+        "vuex": "^3.0.1"
+    },
+    "devDependencies": {},
+    "engines": {
+        "node": ">= 6.0.0",
+        "npm": ">= 3.0.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
+}
