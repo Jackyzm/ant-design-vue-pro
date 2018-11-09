@@ -17,7 +17,7 @@ $ yarn add ant-pro-vue
 
 ```sh
 获取项目
-$ https://github.com/Jackyzm/ant-design-vue-pro.git
+$ git clone https://github.com/Jackyzm/ant-design-vue-pro.git
 
 进入目录
 $ cd ant-design-vue-pro
