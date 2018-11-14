@@ -6,36 +6,25 @@
                 <span v-else=""><a-icon :type="link.title" /></span>
             </a>
         </div>
-        <div class="copyright">Copyright <a-icon type="copyright" /> 2018 蚂蚁金服体验技术部出品</div>
+        <div v-if="$slots.copyright" class="copyright">
+            <slot name="copyright" />
+        </div>
+        <div v-else class="copyright">Copyright <a-icon type="copyright" /> 2018 蚂蚁金服体验技术部出品</div>
     </div>
 </template>
 <script>
 export default {
   name: "GlobalFooter",
+  props: {
+    links: {
+      type: Array,
+      default: () => {
+        [];
+      }
+    }
+  },
   data() {
-    return {
-      links: [
-        {
-          key: "Pro 首页",
-          title: "Pro 首页",
-          href: "https://github.com/Jackyzm/ant-design-vue-pro",
-          blankTarget: true
-        },
-        {
-          key: "github",
-          title: "github",
-          href: "https://github.com/Jackyzm/ant-design-vue-pro",
-          blankTarget: true
-        },
-        {
-          key: "Ant Design Vue",
-          title: "Ant Design Vue",
-          href:
-            "https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce/",
-          blankTarget: true
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>

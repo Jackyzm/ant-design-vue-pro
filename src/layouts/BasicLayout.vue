@@ -25,7 +25,7 @@
                     <router-view></router-view>
                 </a-layout-content>
                 <a-layout-footer style="padding: 0">
-                    <GlobalFooter />
+                    <GlobalFooter :links="links" />
                 </a-layout-footer>
             </a-layout>
         </a-layout>
@@ -67,7 +67,28 @@ export default {
     return {
       MenuData: [],
       logo: logo,
-      collapsed: false
+      collapsed: false,
+      links: [
+        {
+          key: "Pro 首页",
+          title: "Pro 首页",
+          href: "https://github.com/Jackyzm/ant-design-vue-pro",
+          blankTarget: true
+        },
+        {
+          key: "github",
+          title: "github",
+          href: "https://github.com/Jackyzm/ant-design-vue-pro",
+          blankTarget: true
+        },
+        {
+          key: "Ant Design Vue",
+          title: "Ant Design Vue",
+          href:
+            "https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce/",
+          blankTarget: true
+        }
+      ]
     };
   },
   methods: {
