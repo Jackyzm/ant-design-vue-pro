@@ -39,7 +39,7 @@ export default {
   components: {
     ThreeMenu,
     LayoutSider: Layout.Sider,
-    Menu
+    Menu // eslint-disable-line
   },
   props: {
     logo: {

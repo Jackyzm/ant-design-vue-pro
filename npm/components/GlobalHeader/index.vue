@@ -72,8 +72,8 @@ export default {
     Icon,
     Tooltip,
     Dropdown,
-    Menu,
-    MenuItem: Menu.Item,
+    Menu, // eslint-disable-line
+    MenuItem: Menu.Item, // eslint-disable-line
     MenuDivider: Menu.Divider,
     Avatar,
     Spin

@@ -46,7 +46,8 @@ export default {
     Spin,
     Tabs,
     TabPane: Tabs.TabPane,
-    Icon
+    Icon,
+    Badge
   },
   props: {
     popupAlign: {

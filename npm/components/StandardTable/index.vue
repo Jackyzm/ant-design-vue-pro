@@ -43,7 +43,7 @@ export default {
   name: "StandardTable",
   components: {
     Alert,
-    Table
+    Table // eslint-disable-line
   },
   props: {
     pagination: {

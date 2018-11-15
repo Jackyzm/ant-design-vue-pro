@@ -24,7 +24,7 @@ export default {
   name: "HeaderSearch",
   components: {
     AutoComplete,
-    Input,
+    Input, // eslint-disable-line
     Icon
   },
   props: {
