@@ -1,5 +1,5 @@
 <template>
-    <div :style="trendStyle" :class="'trendItem ' + (!colorful ? 'trendItemGrey':' ') + (reverseColor && colorful? reverseColor+' ': ' ') + className ">
+    <div :style="trendStyle" :class="'trendItem ' + (!colorful ? 'trendItemGrey':' ') + (reverseColor && colorful? 'reverseColor': ' ') + className ">
         <slot name="number"></slot>
         <span v-if="flag" :class="flag">
           <a-icon :type="'caret-'+flag" />
