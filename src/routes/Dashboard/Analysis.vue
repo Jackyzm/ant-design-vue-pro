@@ -184,7 +184,7 @@
                     style="margin-top: 24px;"
                 >
                     <template slot="extra">
-                        <span className="iconGroup">
+                        <span class="iconGroup">
                             <a-dropdown placement="bottomRight">
                                 <template slot="overlay">
                                     <a-menu>
@@ -246,7 +246,7 @@
                 >
                     <template slot="extra">
                         <div class="salesCardExtra">
-                            <span className="iconGroup">
+                            <span class="iconGroup">
                                 <a-dropdown placement="bottomRight">
                                     <template slot="overlay">
                                         <a-menu>
