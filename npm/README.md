@@ -2,7 +2,7 @@
 
 基于 ant-design-vue 实现 ant-design-vue-pro，ant-pro 扩展组件基本实现
 
-在线预览地址：<a href="https://jackyzm.github.io/dist/" target="_blank">https://jackyzm.github.io/dist/</a>
+在线预览地址：<a href="https://jackyzm.github.io/vue/" target="_blank">https://jackyzm.github.io/vue/</a>
 
 ## 组件使用
 
