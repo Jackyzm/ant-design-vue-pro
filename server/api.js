@@ -2,9 +2,9 @@ const express = require('express');
 const Router = express.Router();
 const mockjs = require('mockjs');
 
-const notices = require('../mock/api.notices.json');
+const notices = require('./api.notices.json');
 const charts = require('./chart');
-const userCurrent = require('../mock/api.userCurrent.json');
+const userCurrent = require('./api.userCurrent.json');
 const projectNotice = require('./getData').getNotice;
 const getActivities = require('./getData').getActivities;
 const getFakeList = require('./getData').getFakeList;

@@ -1,4 +1,4 @@
-const parse = require('url');
+// const parse = require('url');
 
 // mock tableListDataSource
 let tableListDataSource = [];

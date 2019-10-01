@@ -1,5 +1,5 @@
 {
-    "name": "vue-app",
+    "name": "ant-design-vue-pro",
     "version": "1.0.0",
     "description": "",
     "author": "jackyzm",
@@ -16,7 +16,7 @@
         "lib": "webpack --config build/webpack.lib.conf.js"
     },
     "dependencies": {
-        "ant-design-vue": "^1.1.6",
+        "ant-design-vue": "^1.3.9",
         "echarts": "^4.2.0-rc.2",
         "numeral": "^2.0.6",
         "v-charts": "^1.18.0",

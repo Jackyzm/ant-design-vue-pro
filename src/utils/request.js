@@ -1,4 +1,4 @@
-import { notification } from 'ant-design-vue';
+import {notification} from 'ant-design-vue';
 
 const codeMessage = {
     200: '服务器成功返回请求的数据。',
@@ -15,7 +15,7 @@ const codeMessage = {
     500: '服务器发生错误，请检查服务器。',
     502: '网关错误。',
     503: '服务不可用，服务器暂时过载或维护。',
-    504: '网关超时。',
+    504: '网关超时。'
 };
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -24,7 +24,7 @@ function checkStatus(response) {
     const errortext = codeMessage[response.status] || response.statusText;
     notification.error({
         message: `请求错误 ${response.status}: ${response.url}`,
-        description: errortext,
+        description: errortext
     });
     const error = new Error(errortext);
     error.name = response.status;
@@ -41,27 +41,29 @@ function checkStatus(response) {
  */
 export default function request(url, options) {
     const defaultOptions = {
-        credentials: 'include',
+        // credentials: 'include',
     };
-    const newOptions = { ...defaultOptions, ...options };
+    const newOptions = {...defaultOptions, ...options};
     if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
         if (!(newOptions.body instanceof FormData)) {
             newOptions.headers = {
                 Accept: 'application/json',
                 'Content-Type': 'application/json; charset=utf-8',
-                ...newOptions.headers,
+                ...newOptions.headers
             };
             newOptions.body = JSON.stringify(newOptions.body);
         } else {
             // newOptions.body is FormData
             newOptions.headers = {
                 Accept: 'application/json',
-                ...newOptions.headers,
+                ...newOptions.headers
             };
         }
     }
 
-    return fetch(url, newOptions)
+    const newUrl = `http://116.62.237.104:8080${url}`;
+
+    return fetch(newUrl, newOptions)
         .then(checkStatus)
         .then(response => {
             if (newOptions.method === 'DELETE' || response.status === 204) {
