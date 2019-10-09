@@ -61,9 +61,7 @@ export default function request(url, options) {
         }
     }
 
-    const newUrl = `http://116.62.237.104:8080${url}`;
-
-    return fetch(newUrl, newOptions)
+    return fetch(url, newOptions)
         .then(checkStatus)
         .then(response => {
             if (newOptions.method === 'DELETE' || response.status === 204) {
