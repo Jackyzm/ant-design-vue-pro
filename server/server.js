@@ -32,6 +32,6 @@ app.use('index.html', function(req, res) {
 app.use(bodyParser.json());
 app.use('/api', userRouter);
 
-app.listen(8080, function() {
-    console.log('Node app start at port 8080');
+app.listen(9000, function() {
+    console.log('Node app start at port 9000');
 });
