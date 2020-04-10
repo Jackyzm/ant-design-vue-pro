@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: config.build.mode,
@@ -30,15 +30,30 @@ const webpackConfig = merge(baseWebpackConfig, {
     devtool: false,
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
-                uglifyOptions: {
+            // This is only used in production mode
+            new TerserPlugin({
+                terserOptions: {
+                    parse: {
+                        ecma: 8,
+                    },
                     compress: {
-                        warnings: false
-                    }
+                        ecma: 5,
+                        warnings: false,
+                        comparisons: false,
+                        inline: 2,
+                    },
+                    mangle: {
+                        safari10: true,
+                    },
+                    output: {
+                        ecma: 5,
+                        comments: false,
+                        ascii_only: true,
+                    },
                 },
+                // Enable file caching
                 cache: true,
-                sourceMap: config.build.productionSourceMap,
-                parallel: true
+                sourceMap: false,
             }),
             new OptimizeCSSAssetsPlugin({})
         ]
